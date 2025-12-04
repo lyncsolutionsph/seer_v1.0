@@ -54,9 +54,9 @@ fi
 
 log_message "Current version: $CURRENT_VERSION"
 
-# Fetch version.txt from GitHub
+# Fetch version.txt from GitHub (with cache busting)
 log_message "Fetching version from repository..."
-REPO_VERSION=$(curl -s "$RAW_URL/version.txt" | tr -d '[:space:]')
+REPO_VERSION=$(curl -s -H "Cache-Control: no-cache" "$RAW_URL/version.txt?$(date +%s)" | tr -d '[:space:]')
 
 if [ -z "$REPO_VERSION" ]; then
     log_message "ERROR: Could not read version from repository"
