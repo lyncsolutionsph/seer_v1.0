@@ -5,15 +5,29 @@
 # This script checks the repository for version updates and updates the system if needed
 
 REPO_URL="https://github.com/lyncsolutionsph/seer_v1.0"
-REPO_DIR="/opt/seer_v1.0"
+RAW_URL="https://raw.githubusercontent.com/lyncsolutionsph/seer_v1.0/main"
 TARGET_DIR="/home/admin"
-DB_PATH="$TARGET_DIR/.node-red/seer.db"
+DB_PATH="$TARGET_DIR/.node-red/seer_database/seer.db"
 LOG_FILE="/var/log/seer_updater.log"
 LOCK_FILE="/tmp/seer_updater.lock"
+TEMP_DIR="/tmp/seer_update_$$"
 
 # Function to log messages
 log_message() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+    local message="$(date '+%Y-%m-%d %H:%M:%S') - $1"
+    echo "$message" >> "$LOG_FILE"
+    # Also print to terminal if running interactively
+    if [ -t 1 ]; then
+        echo "$message"
+    fi
+}
+
+# Function to cleanup temp directory
+cleanup() {
+    rm -f "$LOCK_FILE"
+    if [ -d "$TEMP_DIR" ]; then
+        rm -rf "$TEMP_DIR"
+    fi
 }
 
 # Check if script is already running
@@ -25,8 +39,8 @@ fi
 # Create lock file
 touch "$LOCK_FILE"
 
-# Trap to ensure lock file is removed on exit
-trap "rm -f $LOCK_FILE" EXIT
+# Trap to ensure lock file and temp dir are removed on exit
+trap cleanup EXIT
 
 log_message "Starting version check..."
 
@@ -40,23 +54,9 @@ fi
 
 log_message "Current version: $CURRENT_VERSION"
 
-# Navigate to repo directory
-cd "$REPO_DIR" || {
-    log_message "ERROR: Could not navigate to $REPO_DIR"
-    exit 1
-}
-
-# Fetch latest changes from repository
-log_message "Fetching latest changes from repository..."
-git fetch origin main 2>&1 >> "$LOG_FILE"
-
-if [ $? -ne 0 ]; then
-    log_message "ERROR: Failed to fetch from repository"
-    exit 1
-fi
-
-# Get the version from the remote repository
-REPO_VERSION=$(git show origin/main:version.txt 2>/dev/null | tr -d '[:space:]')
+# Fetch version.txt from GitHub
+log_message "Fetching version from repository..."
+REPO_VERSION=$(curl -s "$RAW_URL/version.txt" | tr -d '[:space:]')
 
 if [ -z "$REPO_VERSION" ]; then
     log_message "ERROR: Could not read version from repository"
@@ -70,9 +70,27 @@ version_greater() {
     test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1"
 }
 
-# Check if repository version is higher
-if version_greater "$CURRENT_VERSION" "$REPO_VERSION"; then
+# Check if repository version is higher than current version
+if version_greater "$REPO_VERSION" "$CURRENT_VERSION"; then
     log_message "New version available: $REPO_VERSION (current: $CURRENT_VERSION)"
+    
+    # Prompt for confirmation if running interactively
+    if [ -t 0 ]; then
+        echo ""
+        echo "=========================================="
+        echo "  SEER System Update Available"
+        echo "=========================================="
+        echo "Current version: $CURRENT_VERSION"
+        echo "New version:     $REPO_VERSION"
+        echo ""
+        read -p "Do you want to install this update? (y/n): " -n 1 -r
+        echo ""
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            log_message "Update cancelled by user"
+            exit 0
+        fi
+    fi
+    
     log_message "Starting update process..."
     
     # Stop Node-RED service
@@ -97,41 +115,59 @@ if version_greater "$CURRENT_VERSION" "$REPO_VERSION"; then
         log_message "WARNING: Backup failed, continuing anyway..."
     fi
     
-    # Pull latest changes from repository
-    log_message "Pulling latest changes..."
-    git reset --hard origin/main 2>&1 >> "$LOG_FILE"
+    # Create temp directory for clone
+    mkdir -p "$TEMP_DIR"
+    cd "$TEMP_DIR" || {
+        log_message "ERROR: Could not create temp directory"
+        sudo systemctl start nodered
+        exit 1
+    }
+    
+    # Clone the repository
+    log_message "Cloning repository from GitHub..."
+    git clone --depth 1 --branch main "$REPO_URL" repo 2>&1 >> "$LOG_FILE"
     
     if [ $? -ne 0 ]; then
-        log_message "ERROR: Failed to pull latest changes"
+        log_message "ERROR: Failed to clone repository"
         sudo systemctl start nodered
         exit 1
     fi
     
-    # Copy/Move .node-red from repo to /home/admin/
-    log_message "Copying .node-red from repository to $TARGET_DIR..."
+    # Check if .node-red exists in the cloned repo
+    if [ ! -d "$TEMP_DIR/repo/.node-red" ]; then
+        log_message "ERROR: .node-red directory not found in repository"
+        sudo systemctl start nodered
+        exit 1
+    fi
     
-    # Remove old .node-red except the database
+    # Preserve the database directory if it exists
+    if [ -d "$TARGET_DIR/.node-red/seer_database" ]; then
+        log_message "Preserving database directory..."
+        cp -r "$TARGET_DIR/.node-red/seer_database" /tmp/seer_database.tmp 2>/dev/null
+    fi
+    
+    # Remove old .node-red
     if [ -d "$TARGET_DIR/.node-red" ]; then
-        # Preserve the database
-        cp "$TARGET_DIR/.node-red/seer.db" /tmp/seer.db.tmp 2>/dev/null
-        
-        # Remove old .node-red
         rm -rf "$TARGET_DIR/.node-red"
+        log_message "Removed old .node-red directory"
     fi
     
-    # Copy new .node-red from repo
-    cp -r "$REPO_DIR/.node-red" "$TARGET_DIR/" 2>&1 >> "$LOG_FILE"
+    # Move new .node-red from cloned repo to target
+    mv "$TEMP_DIR/repo/.node-red" "$TARGET_DIR/" 2>&1 >> "$LOG_FILE"
     
     if [ $? -ne 0 ]; then
-        log_message "ERROR: Failed to copy .node-red directory"
+        log_message "ERROR: Failed to move .node-red directory"
         sudo systemctl start nodered
         exit 1
     fi
     
-    # Restore the database
-    if [ -f /tmp/seer.db.tmp ]; then
-        mv /tmp/seer.db.tmp "$TARGET_DIR/.node-red/seer.db"
-        log_message "Database restored"
+    log_message ".node-red moved successfully"
+    
+    # Restore the database directory
+    if [ -d /tmp/seer_database.tmp ]; then
+        rm -rf "$TARGET_DIR/.node-red/seer_database"
+        mv /tmp/seer_database.tmp "$TARGET_DIR/.node-red/seer_database"
+        log_message "Database directory restored"
     fi
     
     # Set proper permissions
@@ -140,7 +176,7 @@ if version_greater "$CURRENT_VERSION" "$REPO_VERSION"; then
     
     # Update database with new version
     log_message "Updating database version to $REPO_VERSION..."
-    sqlite3 "$DB_PATH" "UPDATE settings SET version = '$REPO_VERSION', system_version = '$REPO_VERSION';" 2>&1 >> "$LOG_FILE"
+    sqlite3 "$DB_PATH" "UPDATE settings SET version = '$REPO_VERSION';" 2>&1 >> "$LOG_FILE"
     
     if [ $? -ne 0 ]; then
         log_message "ERROR: Failed to update database version"
