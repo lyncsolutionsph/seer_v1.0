@@ -1,0 +1,2307 @@
+[
+    {
+        "id": "879a6e8a3d45317e",
+        "type": "tab",
+        "label": "Theme",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f867d38eea12a7ca",
+        "type": "tab",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f884d898ef7c9805",
+        "type": "tab",
+        "label": "Firewall",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b549eb3e5c3f9704",
+        "type": "tab",
+        "label": "Router",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6bb175bb422b67e1",
+        "type": "tab",
+        "label": "Settings",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "eea487bd8d3eb486",
+        "type": "tab",
+        "label": "Login",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bd7698544c43bb28",
+        "type": "tab",
+        "label": "restart-test",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "1a4f820a2b6f95b0",
+        "type": "group",
+        "z": "b549eb3e5c3f9704",
+        "name": "Temporal Policy Management",
+        "style": {
+            "fill": "#e3f3f3",
+            "label": true
+        },
+        "nodes": [
+            "policy-http",
+            "policy-handler",
+            "policy-response"
+        ],
+        "x": 794,
+        "y": 659,
+        "w": 892,
+        "h": 82
+    },
+    {
+        "id": "1f9c352c3681ac36",
+        "type": "group",
+        "z": "b549eb3e5c3f9704",
+        "name": "DHCP Leases",
+        "style": {
+            "fill": "#bfc7d7",
+            "fill-opacity": "0.81",
+            "label": true
+        },
+        "nodes": [
+            "48d09169d4a59566",
+            "622bdb8d5af75b25",
+            "bf3c9e416f110a7c",
+            "1fcd60e648b51b55",
+            "5995dd411acc3d96",
+            "fdbb82202c014239",
+            "6caa746b86959a19",
+            "b636c0977c608994",
+            "18c4537e0c03f89b",
+            "3928e8812e574e29",
+            "549acf19b065bcc0",
+            "209df0ba4f4f5ff3",
+            "762bc7d50bcd62a3"
+        ],
+        "x": 14,
+        "y": 71.5,
+        "w": 1312,
+        "h": 429.5
+    },
+    {
+        "id": "a2604023228e721d",
+        "type": "ui_tab",
+        "name": "Dashboard Monitoring",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "fd47bb8ce381550f",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "f2427b68746386ce",
+        "type": "ui_group",
+        "name": "CPU Dashboard",
+        "tab": "a2604023228e721d",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f6g7h8i9.j0k1l2",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e5f6g7h8.i9j0k1",
+        "type": "ui_group",
+        "name": "DISK",
+        "tab": "f6g7h8i9.j0k1l2",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "3dee361fb9eb970e",
+        "type": "sqlitedb",
+        "db": "/home/admin/.node-red/seer_database/seer.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "e010df71b4b275f9",
+        "type": "uibuilder",
+        "z": "879a6e8a3d45317e",
+        "name": "seer-theme",
+        "topic": "",
+        "url": "seer-theme",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": true,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://vscode-remote/ssh-remote+192.168.50.1/home/admin/.node-red/uibuilder/seer-theme/?windowId=_blank",
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0ce63095c16ee060",
+        "type": "inject",
+        "z": "f867d38eea12a7ca",
+        "name": "CPU inject",
+        "props": [],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "07b87b3e60eab27f"
+            ]
+        ]
+    },
+    {
+        "id": "a12b1ed67329f816",
+        "type": "function",
+        "z": "f867d38eea12a7ca",
+        "name": "Get CPU Status",
+        "func": "// Extract CPU array from msg.payload\nconst cpus = msg.payload.cpus\nif (!cpus) return null\n\n// Store previous readings for delta calculation\nlet previous = context.get('previous') || []\nlet result = {}\n\n// Calculate per-core usage percentage\ncpus.forEach((cpu, i) => {\n    const total = Object.values(cpu.times).reduce((a, b) => a + b)\n    const idle = cpu.times.idle\n\n    if (previous[i]) {\n        const totalDiff = total - previous[i].total\n        const idleDiff = idle - previous[i].idle\n        const usage = 100 - Math.round(100 * idleDiff / totalDiff)\n        result[`core${i}`] = usage\n    }\n\n    previous[i] = { total, idle }\n})\n\n// Save state for next comparison\ncontext.set('previous', previous)\n\n// Compute overall average usage\nconst avg = Object.values(result).reduce((a, b) => a + b, 0) / Object.keys(result).length || 0\n\nmsg.payload = {\n    time: Date.now(),\n    cores: result,\n    overall: Math.round(avg)\n}\n\nreturn msg\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 100,
+        "wires": [
+            [
+                "105d2107995ab730"
+            ]
+        ]
+    },
+    {
+        "id": "07b87b3e60eab27f",
+        "type": "CPUs",
+        "z": "f867d38eea12a7ca",
+        "name": "",
+        "x": 410,
+        "y": 100,
+        "wires": [
+            [
+                "a12b1ed67329f816"
+            ]
+        ]
+    },
+    {
+        "id": "4c9616ab0dc5d3e1",
+        "type": "function",
+        "z": "f867d38eea12a7ca",
+        "name": "Get Memory ",
+        "func": "const os = global.get('os');\n\nif (!os) {\n    node.error(\"OS module not accessible\");\n    return null;\n}\n\n// Memory Calculation in MB (following CPU pattern)\nconst MB = 1024 * 1024;\nconst total = Math.round(os.totalmem() / MB);\nconst free = Math.round(os.freemem() / MB);\nconst used = total - free;\nconst cache = Math.round(free * 0.3); // Approximate cache\n\nmsg.payload = {\n    memory: {\n        used: used,\n        cache: cache,\n        total: total\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 360,
+        "wires": [
+            [
+                "105d2107995ab730"
+            ]
+        ]
+    },
+    {
+        "id": "46f78104f6740334",
+        "type": "inject",
+        "z": "f867d38eea12a7ca",
+        "name": "Memory Inject",
+        "props": [],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "a1d299b6dbdbaeb5"
+            ]
+        ]
+    },
+    {
+        "id": "e5a72aee50732394",
+        "type": "inject",
+        "z": "f867d38eea12a7ca",
+        "name": "Disk Inject",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 540,
+        "wires": [
+            [
+                "9febc9b2e286aa3c"
+            ]
+        ]
+    },
+    {
+        "id": "9febc9b2e286aa3c",
+        "type": "exec",
+        "z": "f867d38eea12a7ca",
+        "command": "df -h /",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get Disk Usage",
+        "x": 420,
+        "y": 540,
+        "wires": [
+            [
+                "a1923ed02ff90fe1"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a1923ed02ff90fe1",
+        "type": "function",
+        "z": "f867d38eea12a7ca",
+        "name": "Disk Usage Function",
+        "func": "let lines = msg.payload.trim().split(\"\\n\");\n\nif (lines.length > 1) {\n    let parts = lines[1].split(/\\s+/);\n    let usedPercent = parseInt(parts[4].replace(\"%\", \"\"));\n    let freePercent = 100 - usedPercent;\n\n    msg.payload = {\n        labels: [\"Used\", \"Free\"],\n        values: [usedPercent, freePercent]\n    };\n} else {\n    msg.payload = { error: \"No disk information\" };\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 540,
+        "wires": [
+            [
+                "105d2107995ab730"
+            ]
+        ]
+    },
+    {
+        "id": "a1d299b6dbdbaeb5",
+        "type": "Memory",
+        "z": "f867d38eea12a7ca",
+        "name": "",
+        "scale": "Byte",
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "4c9616ab0dc5d3e1"
+            ]
+        ]
+    },
+    {
+        "id": "tail-suricata",
+        "type": "tail",
+        "z": "f867d38eea12a7ca",
+        "name": "Tail Suricata eve.json",
+        "filetype": "text",
+        "split": "true",
+        "filename": "/var/log/suricata/eve.json",
+        "inputs": 0,
+        "x": 220,
+        "y": 720,
+        "wires": [
+            [
+                "extract-event"
+            ]
+        ]
+    },
+    {
+        "id": "extract-event",
+        "type": "function",
+        "z": "f867d38eea12a7ca",
+        "name": "Extract Important Event Fields",
+        "func": "let buffer = flow.get('suricataAlerts') || [];\n\n// Normalize payload to text\nconst chunk = (typeof msg.payload === 'string') ? msg.payload : String(msg.payload || '');\nconst lines = chunk.split(/\\r?\\n/);\n\nfor (const raw of lines) {\n    const line = raw.trim();\n    if (!line) continue;\n\n    // Some chunks may contain multiple JSON objects concatenated without newlines.\n    // Try to extract JSON objects defensively:\n    // If a line contains more than one {...} object, split them.\n    const objs = [];\n    let start = -1, depth = 0;\n    for (let i = 0; i < line.length; i++) {\n        const ch = line[i];\n        if (ch === '{') {\n            if (depth === 0) start = i;\n            depth++;\n        } else if (ch === '}') {\n            depth--;\n            if (depth === 0 && start >= 0) {\n                objs.push(line.slice(start, i + 1));\n                start = -1;\n            }\n        }\n    }\n\n    const candidates = objs.length ? objs : [line];\n\n    for (const cand of candidates) {\n        let o;\n        try {\n            o = JSON.parse(cand);\n        } catch (e) {\n            // Log once per failure; comment this out if too chatty\n            // node.warn(`JSON parse failed: ${e.message}`);\n            continue;\n        }\n\n        // Keep only alerts\n        const isAlert = o?.event_type === 'alert' || !!o?.alert;\n        if (!isAlert) continue;\n\n        // Map minimal fields\n        const a = {\n            time: o.timestamp || o.flow?.start || new Date().toISOString(),\n            type: o.alert?.category || 'Unknown',\n            source: `${o.src_ip || 'unknown'}${o.src_port ? ':' + o.src_port : ''}`,\n            destination: `${o.dest_ip || 'unknown'}${o.dest_port ? ':' + o.dest_port : ''}`,\n            alert: o.alert?.signature || 'No signature',\n        };\n\n        buffer.unshift(a);\n    }\n}\n\n// Keep last 10\nif (buffer.length > 10) buffer = buffer.slice(0, 10);\nflow.set('suricataAlerts', buffer);\n\n// Emit to UI on every input so the table stays current\nmsg.payload = buffer;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 720,
+        "wires": [
+            [
+                "105d2107995ab730"
+            ]
+        ]
+    },
+    {
+        "id": "105d2107995ab730",
+        "type": "uibuilder",
+        "z": "f867d38eea12a7ca",
+        "name": "seer-dashboard",
+        "topic": "",
+        "url": "seer-dashboard",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://vscode-remote/ssh-remote+192.168.50.1/home/admin/.node-red/uibuilder/seer-dashboard/?windowId=_blank",
+        "x": 1220,
+        "y": 360,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "20ed4d1ca473fbe3",
+        "type": "http in",
+        "z": "f867d38eea12a7ca",
+        "name": "GET Dashboard",
+        "url": "/dashboard",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 1160,
+        "y": 80,
+        "wires": [
+            [
+                "53cb5af5488198c9"
+            ]
+        ]
+    },
+    {
+        "id": "53cb5af5488198c9",
+        "type": "function",
+        "z": "f867d38eea12a7ca",
+        "name": "Check Session",
+        "func": "// Session Check Middleware for Node-RED\n// Use this in a Function node before any protected page/endpoint\n\ntry {\n    // Get token from various sources (query, header, or cookie)\n    let token = null;\n\n    // 1. Check query parameter\n    if (msg.req && msg.req.query && msg.req.query.token) {\n        token = msg.req.query.token;\n    }\n\n    // 2. Check Authorization header\n    if (!token && msg.req && msg.req.headers && msg.req.headers.authorization) {\n        const authHeader = msg.req.headers.authorization;\n        if (authHeader.startsWith('Bearer ')) {\n            token = authHeader.substring(7);\n        }\n    }\n\n    // 3. Check cookies\n    if (!token && msg.req && msg.req.cookies && msg.req.cookies.sessionToken) {\n        token = msg.req.cookies.sessionToken;\n    }\n\n    node.warn(\"Session check - Token: \" + (token ? token.substring(0, 8) + \"...\" : \"NONE\"));\n\n    if (!token) {\n        // No token provided - redirect to login\n        msg.statusCode = 302;\n        msg.headers = {\n            'Location': '/login'\n        };\n        msg.payload = \"Redirecting to login...\";\n        return [null, msg]; // Output 2: Unauthorized\n    }\n\n    // Retrieve session from global context\n    const sessionData = global.get('session_' + token);\n\n    if (!sessionData) {\n        // Invalid or expired session - redirect to login\n        node.warn(\"Session not found for token\");\n        msg.statusCode = 302;\n        msg.headers = {\n            'Location': '/login?error=session_expired'\n        };\n        msg.payload = \"Session expired. Redirecting to login...\";\n        return [null, msg]; // Output 2: Unauthorized\n    }\n\n    // Check if session has expired\n    if (sessionData.expiresAt < Date.now()) {\n        // Session expired - clean up and redirect\n        node.warn(\"Session expired\");\n        global.set('session_' + token, null); // Clean up expired session\n        msg.statusCode = 302;\n        msg.headers = {\n            'Location': '/login?error=session_expired'\n        };\n        msg.payload = \"Session expired. Redirecting to login...\";\n        return [null, msg]; // Output 2: Unauthorized\n    }\n\n    // Valid session - attach user data to message\n    msg.user = sessionData.user;\n    msg.sessionToken = token;\n\n    node.warn(\"Session valid for user: \" + sessionData.user.username);\n\n    return [msg, null]; // Output 1: Authorized\n\n} catch (err) {\n    node.error(\"Session check error: \" + err);\n    msg.statusCode = 302;\n    msg.headers = {\n        'Location': '/login?error=server_error'\n    };\n    msg.payload = \"Error checking session. Redirecting to login...\";\n    return [null, msg]; // Output 2: Unauthorized\n}\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 200,
+        "wires": [
+            [
+                "105d2107995ab730"
+            ],
+            [
+                "2c1d8895cb10a370"
+            ]
+        ]
+    },
+    {
+        "id": "2c1d8895cb10a370",
+        "type": "http response",
+        "z": "f867d38eea12a7ca",
+        "name": "If Session failed",
+        "statusCode": "",
+        "headers": {},
+        "x": 1380,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "1596411f2b1b0c96",
+        "type": "uibuilder",
+        "z": "f884d898ef7c9805",
+        "name": "seer-firewall",
+        "topic": "",
+        "url": "seer-firewall",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://vscode-remote/ssh-remote+192.168.50.1/home/admin/.node-red/uibuilder/seer-firewall/?windowId=_blank",
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c39f7103133bb943",
+        "type": "inject",
+        "z": "b549eb3e5c3f9704",
+        "name": "Trigger Policy Creation",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 160,
+        "y": 1700,
+        "wires": [
+            [
+                "89621d7c31555b28"
+            ]
+        ]
+    },
+    {
+        "id": "89621d7c31555b28",
+        "type": "function",
+        "z": "b549eb3e5c3f9704",
+        "name": "function 1",
+        "func": "\nvar newPolicy = {\n    \"policy\": \"Block FB.com (Evening)\",\n    \"source\": \"192.168.100.0/24\",\n    \"destination\": \"facebook.com\",\n    \"enabled\": true,\n    \"schedule\": {\n        \"start\": \"20:00\",\n        \"end\": \"06:00\"\n    }\n};\n\nmsg.payload = newPolicy;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1700,
+        "wires": [
+            [
+                "b8a9880c1c62b3fe"
+            ]
+        ]
+    },
+    {
+        "id": "b8a9880c1c62b3fe",
+        "type": "http request",
+        "z": "b549eb3e5c3f9704",
+        "name": "add policy to API",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.50.1:5000/policies",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 590,
+        "y": 1700,
+        "wires": [
+            [
+                "88957fa73cadc6c3"
+            ]
+        ]
+    },
+    {
+        "id": "88957fa73cadc6c3",
+        "type": "function",
+        "z": "b549eb3e5c3f9704",
+        "name": "function 2",
+        "func": "msg.payload = {};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 1700,
+        "wires": [
+            [
+                "92704c4b8d573a76"
+            ]
+        ]
+    },
+    {
+        "id": "92704c4b8d573a76",
+        "type": "http request",
+        "z": "b549eb3e5c3f9704",
+        "name": "Reload Policy Engine",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.50.1:5000/reload",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1040,
+        "y": 1700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "841583b5343cb381",
+        "type": "debug",
+        "z": "b549eb3e5c3f9704",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1360,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "48d09169d4a59566",
+        "type": "inject",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "DHCP inject",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "1fcd60e648b51b55"
+            ]
+        ]
+    },
+    {
+        "id": "622bdb8d5af75b25",
+        "type": "function",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "Parse & Store Function",
+        "func": "\n\nlet leases = [];\n\nnode.warn(\"=== PARSING DHCP LEASES ===\");\n\nif (!msg.payload || typeof msg.payload !== 'string') {\n    node.warn(\"ERROR: No payload!\");\n    msg.topic = 'inject';\n    msg.payload = [];\n    return msg;\n}\n\nlet lines = msg.payload.trim().split('\\n');\nnode.warn(`Processing ${lines.length} lines`);\n\nfor (let line of lines) {\n    if (!line.trim()) continue;\n\n    let parts = line.trim().split(/\\s+/);\n\n    // dnsmasq format: timestamp mac ip hostname client\n    if (parts.length >= 4) {\n        // Calculate lease time remaining (timestamp - current time)\n        let leaseExpiry = parseInt(parts[0], 10);\n        let currentTime = Math.floor(Date.now() / 1000);\n        let leaseTimeRemaining = Math.max(0, leaseExpiry - currentTime);\n\n        // Detect device type from hostname or MAC vendor (basic detection)\n        let hostname = parts[3] === '*' ? 'Unknown' : parts[3];\n        let deviceType = 'Unknown';\n        let lowerHostname = hostname.toLowerCase();\n        if (lowerHostname.includes('android') || lowerHostname.includes('samsung') || lowerHostname.includes('pixel')) {\n            deviceType = 'Phone';\n        } else if (lowerHostname.includes('iphone') || lowerHostname.includes('ipad')) {\n            deviceType = 'Apple Device';\n        } else if (lowerHostname.includes('laptop') || lowerHostname.includes('pc') || lowerHostname.includes('desktop')) {\n            deviceType = 'Computer';\n        } else if (lowerHostname.includes('tv') || lowerHostname.includes('roku') || lowerHostname.includes('chromecast')) {\n            deviceType = 'TV/Media';\n        }\n\n        node.warn(`Device: ${hostname} -> Type: ${deviceType}, Lease: ${leaseTimeRemaining}s`);\n\n        leases.push({\n            mac: parts[1],\n            ip: parts[2],\n            hostname: hostname,\n            deviceType: deviceType,\n            leaseTime: leaseTimeRemaining,\n            status: 'active',\n            static: false,\n            interface: 'eth0',\n            uptime: 0\n        });\n    }\n}\n\nnode.warn(`Parsed ${leases.length} devices from DHCP`);\n\n// Store leases for ARP check\nflow.set('pending_leases', leases);\n\n// Trigger ARP read\nmsg.topic = 'inject';\nmsg.payload = 'trigger_arp';\nnode.warn(\"=== Triggering ARP Check ===\");\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 140,
+        "wires": [
+            [
+                "5995dd411acc3d96"
+            ]
+        ]
+    },
+    {
+        "id": "40ad05a0c8555f76",
+        "type": "inject",
+        "z": "b549eb3e5c3f9704",
+        "name": "Schedule Check",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 550,
+        "y": 1620,
+        "wires": [
+            [
+                "f95b9f6c6a5a38db"
+            ]
+        ]
+    },
+    {
+        "id": "f95b9f6c6a5a38db",
+        "type": "function",
+        "z": "b549eb3e5c3f9704",
+        "name": "Check Active Policies",
+        "func": "const policies = global.get('policies') || [];\nconst now = new Date();\nconst currentTime = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');\n\npolicies.forEach(policy => {\n  if (policy.enabled && (policy.rawTimes || policy.schedule)) {\n    const start = (policy.rawTimes && policy.rawTimes.start) || policy.schedule?.start || '00:00';\n    const end = (policy.rawTimes && policy.rawTimes.end) || policy.schedule?.end || '23:59';\n    // support ranges that wrap midnight (start > end)\n    const isActive = (start <= currentTime && currentTime <= end) || (start > end && (currentTime >= start || currentTime <= end));\n    if (isActive) {\n      // send JSON string so exec node appends a single JSON argument\n      const payloadObj = { destination: policy.destination, source: policy.source || '*' };\n      node.send({ topic: 'apply_block', payload: JSON.stringify(payloadObj) });\n    }\n  }\n});\nreturn null;",
+        "outputs": 1,
+        "x": 840,
+        "y": 1620,
+        "wires": [
+            [
+                "8fb8097d1d5fcd2e"
+            ]
+        ]
+    },
+    {
+        "id": "8fb8097d1d5fcd2e",
+        "type": "exec",
+        "z": "b549eb3e5c3f9704",
+        "command": "python3 /Desktop/TemporalFiles/temporal_policy.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Apply Block Rule",
+        "x": 1110,
+        "y": 1620,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "bf3c9e416f110a7c",
+        "type": "function",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "Handler Function",
+        "func": "// OPTIONAL: Enable persistence (uncomment to survive restarts)\nconst ENABLE_PERSISTENCE = false;\nconst STORAGE_FILE = '/tmp/nodered_devices.json';\n\n// Initialize flow variables if they don't exist\nif (!flow.get('devices')) {\n    flow.set('devices', []);\n}\nif (!flow.get('lastUpdate')) {\n    flow.set('lastUpdate', Date.now());\n}\n\n// Helper functions for persistence (only used if ENABLE_PERSISTENCE = true)\nfunction loadFromDisk() {\n    if (!ENABLE_PERSISTENCE) return [];\n    try {\n        const fs = context.global.get('fs') || require('fs');\n        context.global.set('fs', fs);\n        if (fs.existsSync(STORAGE_FILE)) {\n            const data = fs.readFileSync(STORAGE_FILE, 'utf8');\n            return JSON.parse(data);\n        }\n    } catch (err) {\n        node.warn(`Persistence load error: ${err.message}`);\n    }\n    return [];\n}\n\nfunction saveToDisk(devices) {\n    if (!ENABLE_PERSISTENCE) return;\n    try {\n        const fs = context.global.get('fs') || require('fs');\n        context.global.set('fs', fs);\n        fs.writeFileSync(STORAGE_FILE, JSON.stringify(devices, null, 2), 'utf8');\n        node.warn(`Persisted ${devices.length} devices to disk`);\n    } catch (err) {\n        node.warn(`Persistence save error: ${err.message}`);\n    }\n}\n\n// Handle incoming messages from UI\nif (msg.topic === 'blocked_devices') {\n    const macsToRemove = msg.payload;\n\n    // Validate input\n    if (!Array.isArray(macsToRemove) || macsToRemove.length === 0) {\n        node.warn('blocked_devices: invalid or empty payload');\n        return [null, null];\n    }\n\n    // Normalize MACs for case-insensitive comparison\n    const macsToRemoveSet = new Set(\n        macsToRemove.map(m => String(m).toLowerCase())\n    );\n\n    node.warn(`Removing devices: ${Array.from(macsToRemoveSet).join(', ')}`);\n\n    // Filter out devices with matching MACs\n    let devices = flow.get('devices') || [];\n    devices = devices.filter(\n        device => !macsToRemoveSet.has(String(device.mac).toLowerCase())\n    );\n\n    flow.set('devices', devices);\n    flow.set('lastUpdate', Date.now());\n\n    // Persist to disk if enabled\n    saveToDisk(devices);\n\n    node.warn(`Sending ${devices.length} devices to UI (after removal)`);\n\n    return [\n        { topic: 'devices', payload: devices },\n        { topic: 'remove_dhcp', payload: Array.from(macsToRemoveSet) }\n    ];\n}\n\n// Forward remove_devices (UI -> request to remove/block devices) to downstream nodes\nif (msg.topic === 'remove_devices') {\n    node.warn(`Forwarding remove_devices to removal flow: ${JSON.stringify(msg.payload)}`);\n    // send to output 2 (assumed removal command path)\n    return [null, { topic: 'remove_devices', payload: msg.payload }];\n}\n\n// Handle inject node updates\nif (msg.topic === 'dhcp_update' || msg.topic === 'inject') {\n    const lastUpdate = flow.get('lastUpdate') || 0;\n    const now = Date.now();\n\n    node.warn(`Received ${msg.payload.length} devices from parser`);\n\n    if (now - lastUpdate > 2000) {\n        flow.set('devices', msg.payload);\n        flow.set('lastUpdate', now);\n\n        // Persist to disk if enabled\n        saveToDisk(msg.payload);\n\n        node.warn(`Sending ${msg.payload.length} devices to UI`);\n        // Only output 1 (no removal action)\n        return [{ topic: 'devices', payload: msg.payload }, null];\n    } else {\n        node.warn('Suppressing update - recent user action detected');\n        return [null, null];\n    }\n}\n\n// Handle fetch requests from UI\nif (msg.topic === 'fetch_devices') {\n    const devices = flow.get('devices') || [];\n    node.warn(`Fetch request: Sending ${devices.length} devices to UI`);\n    // Only output 1 (no removal action)\n    return [{ topic: 'devices', payload: devices }, null];\n}\n\n// Handle blocked_devices messages - MUST be forwarded to UI\nif (msg.topic === 'blocked_devices' || msg.topic === 'blocked_list') {\n    node.warn(`Forwarding blocked devices to UI: ${JSON.stringify(msg.payload)}`);\n    return [msg, null]; // Send to output 1 (seer-router)\n}\n\n// Ignore other policy-related messages (they're handled by a different flow)\nconst policyTopics = ['policies', 'fetch_policies', 'add_policy', 'update_policy', 'delete_policies', 'toggle_policy_status', 'fetch_blocked_devices', 'unblock_device', 'unblock_result'];\nif (policyTopics.includes(msg.topic)) {\n    // Pass through to output 1, no logging\n    return [msg, null];\n}\n\n// Ignore other non-device messages silently\nif (msg.topic && !msg.topic.includes('device') && !msg.topic.includes('dhcp') && !msg.topic.includes('remove')) {\n    return [msg, null];\n}\n\n// Only log unknown device-related topics\nnode.warn(`Unknown topic received: ${msg.topic}`);\nreturn [null, null];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "fs",
+                "module": "fs/promises"
+            }
+        ],
+        "x": 610,
+        "y": 200,
+        "wires": [
+            [
+                "762bc7d50bcd62a3",
+                "549acf19b065bcc0"
+            ],
+            [
+                "6caa746b86959a19"
+            ]
+        ]
+    },
+    {
+        "id": "1fcd60e648b51b55",
+        "type": "file in",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "Read DHCP Leases",
+        "filename": "/var/lib/misc/dnsmasq.leases",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "622bdb8d5af75b25"
+            ]
+        ]
+    },
+    {
+        "id": "5995dd411acc3d96",
+        "type": "file in",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "Read ARP Table",
+        "filename": "/proc/net/arp",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "fdbb82202c014239"
+            ]
+        ]
+    },
+    {
+        "id": "fdbb82202c014239",
+        "type": "function",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "ARP Checking",
+        "func": "// FAST: Filter connected devices with active ARP refresh\n// Use after \"read file\" node that reads /proc/net/arp\n// Set inject to 2-3 seconds for fastest detection\n\n// Get the leases we stored earlier\nlet leases = flow.get('pending_leases') || [];\n\nnode.warn(`=== CHECKING ARP TABLE (FAST MODE) ===`);\nnode.warn(`Checking ${leases.length} devices from DHCP`);\n\nif (!msg.payload || typeof msg.payload !== 'string') {\n    node.warn(\"ERROR: No ARP output!\");\n    msg.topic = 'inject';\n    msg.payload = [];\n    return msg;\n}\n\n// Parse ARP table to find TRULY CONNECTED devices with their interfaces\nlet activeDevices = new Map(); // MAC -> {interface, flags}\nlet arpLines = msg.payload.split('\\n');\n\nfor (let line of arpLines) {\n    // Skip header line\n    if (line.includes('IP address') || line.includes('HW type')) continue;\n\n    let parts = line.trim().split(/\\s+/);\n\n    // ARP format: IP HW_type Flags MAC Mask Interface\n    if (parts.length >= 6) {\n        let flags = parts[2];\n        let mac = parts[3];\n        let iface = parts[5]; // Get the actual interface (eth0, wlan0, etc.)\n\n        // Accept reachable (0x2), permanent (0x6), and stale (0x4) devices\n        // Skip incomplete (0x0) for fast disconnect detection\n        if ((flags === '0x2' || flags === '0x6' || flags === '0x4') &&\n            mac !== '00:00:00:00:00:00' &&\n            !mac.startsWith('00:00:00')) {\n\n            let normalizedMAC = mac.toLowerCase().replace(/-/g, ':');\n            activeDevices.set(normalizedMAC, {\n                interface: iface,\n                flags: flags\n            });\n        }\n    }\n}\n\nnode.warn(`Found ${activeDevices.size} connected devices`);\n\n// FILTER: Only keep devices that are in ARP table and update their interface\nlet connectedDevices = leases.filter(lease => {\n    let normalizedMAC = lease.mac.toLowerCase().replace(/-/g, ':');\n    return activeDevices.has(normalizedMAC);\n}).map(lease => {\n    let normalizedMAC = lease.mac.toLowerCase().replace(/-/g, ':');\n    let deviceInfo = activeDevices.get(normalizedMAC);\n\n    // Update interface from ARP table\n    return {\n        ...lease,\n        interface: deviceInfo ? deviceInfo.interface : lease.interface\n    };\n});\n\nnode.warn(`Result: ${connectedDevices.length} connected, ${leases.length - connectedDevices.length} disconnected (hidden)`);\n\n// Clean up storage\nflow.set('pending_leases', null);\n\n// Send only connected devices\nmsg.topic = 'inject';\nmsg.payload = connectedDevices;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "bf3c9e416f110a7c"
+            ]
+        ]
+    },
+    {
+        "id": "6caa746b86959a19",
+        "type": "split",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "Split MACs for Removal",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "property": "payload",
+        "x": 230,
+        "y": 280,
+        "wires": [
+            [
+                "3928e8812e574e29"
+            ]
+        ]
+    },
+    {
+        "id": "b636c0977c608994",
+        "type": "template",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "Build Remove Command",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "sudo /usr/local/bin/remove_device_complete.sh {{{payload}}}",
+        "output": "str",
+        "x": 710,
+        "y": 280,
+        "wires": [
+            [
+                "18c4537e0c03f89b"
+            ]
+        ]
+    },
+    {
+        "id": "18c4537e0c03f89b",
+        "type": "exec",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "15",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Execute Remove Script",
+        "x": 730,
+        "y": 360,
+        "wires": [
+            [
+                "762bc7d50bcd62a3"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3928e8812e574e29",
+        "type": "function",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "Extract MAC from Split",
+        "func": "if (msg.payload) {\n    // If already a string, just trim whitespace\n    if (typeof msg.payload === 'string') {\n        msg.payload = msg.payload.trim();\n        node.warn(`✓ MAC string: ${msg.payload}`);\n        return msg;\n    }\n\n    // If it's an object, extract from msg.parts.key (split node location)\n    if (msg.parts && msg.parts.key !== undefined) {\n        msg.payload = String(msg.parts.key).trim();\n        node.warn(`✓ MAC from parts.key: ${msg.payload}`);\n        return msg;\n    }\n\n    // Last resort: stringify the object\n    msg.payload = String(msg.payload).trim();\n    node.warn(`⚠️ MAC stringified: ${msg.payload}`);\n    return msg;\n}\n\n// If payload is empty/null, block the message\nnode.warn(`❌ No payload found - blocking message`);\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 280,
+        "wires": [
+            [
+                "b636c0977c608994"
+            ]
+        ]
+    },
+    {
+        "id": "549acf19b065bcc0",
+        "type": "function",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "Blocked Devices Handler",
+        "func": "// Node-RED Function Node: Blocked Devices Handler (Clean Exec Version)\n// Works with exec node - shows blocked devices in UI\n\n// Prevent re-processing responses if they loop back (we'll send 'blocked_list' to UI)\nif (msg && msg.topic === 'blocked_list') {\n    node.warn('Ignoring blocked_list message to avoid feedback loop');\n    return null;\n}\n\nif (msg.topic === 'fetch_blocked_devices') {\n    // Send command to exec node to run the list script\n    node.warn('Received fetch_blocked_devices request - sending to exec');\n    return {\n        payload: '/usr/local/bin/list_blocked_devices.sh',\n        topic: 'exec_list_blocked'\n    };\n}\n\n// Handle exec response - accept any message with JSON payload (exec output)\nif (msg.payload && (typeof msg.payload === 'string' || (typeof msg.payload === 'object' && (msg.payload.code !== undefined || msg.payload.stdout !== undefined)))) {\n    // Skip if this is clearly a command being sent (not a response)\n    if (typeof msg.payload === 'string' && msg.payload.startsWith('/usr/local/bin/')) {\n        return msg; // This is the command going TO exec, not FROM exec\n    }\n\n    node.warn('Received exec response');\n\n    try {\n        let jsonOutput = '';\n\n        if (typeof msg.payload === 'string') {\n            node.warn('Exec returned string directly');\n            jsonOutput = msg.payload;\n        } else if (typeof msg.payload === 'object' && msg.payload.code !== undefined) {\n            node.warn('Exec returned object with code: ' + msg.payload.code);\n            if (msg.payload.code === 0) {\n                jsonOutput = msg.payload.stdout || '';\n            } else {\n                node.error(`Script failed with code ${msg.payload.code}: ${msg.payload.stderr}`);\n                // send empty blocked_list to UI\n                return { topic: 'blocked_list', payload: [] };\n            }\n        } else if (typeof msg.payload === 'object' && msg.payload.stdout) {\n            jsonOutput = msg.payload.stdout;\n        }\n\n        if (!jsonOutput) {\n            node.warn('No output from exec');\n            return { topic: 'blocked_list', payload: [] };\n        }\n\n        // Parse JSON\n        node.warn('Parsing JSON output: ' + jsonOutput.substring(0, 100));\n        const devices = JSON.parse(jsonOutput);\n        node.warn(`Found ${devices.length} blocked device(s) - sending to UI`);\n\n        // Send the message with blocked devices using a distinct topic\n        // Send on first output (return statement) so it goes to Handler Function -> seer-router\n        const outMsg = { topic: 'blocked_list', payload: devices, _msgid: msg._msgid };\n        return outMsg; // Return on first output\n\n    } catch (err) {\n        node.error(`JSON parse error: ${err.message}`);\n        node.error(`Received: ${JSON.stringify(msg.payload).substring(0, 200)}`);\n        return { topic: 'blocked_list', payload: [] };\n    }\n}\n\n// Handle unblock_device request\nif (msg.topic === 'unblock_device') {\n    var mac = msg.payload.mac || msg.payload;\n    var ip = msg.payload.ip || \"\";\n\n    node.warn('Unblock request for MAC: ' + mac + ', IP: ' + ip);\n\n    // Build command to run via exec node\n    var cmd = '/bin/bash -c \"sudo /usr/local/bin/unblock_wrapper.sh ' + mac + ' ' + ip + '\"';\n\n    // CRITICAL: Preserve MAC and IP through exec node response\n    return {\n        topic: 'exec_unblock',\n        payload: cmd,\n        _unblock_mac: mac,\n        _unblock_ip: ip\n    };\n}\n\n// Handle unblock exec response\nif (msg.topic === 'exec_unblock' || (msg._unblock_mac && typeof msg.payload === 'object')) {\n    node.warn('Unblock exec response received: ' + JSON.stringify(msg.payload).substring(0, 200));\n\n    // Check if exec succeeded (code 0) or failed\n    let success = true;\n    let message = 'Device unblocked successfully. It can now reconnect.';\n\n    if (typeof msg.payload === 'object' && msg.payload.code !== undefined) {\n        if (msg.payload.code !== 0) {\n            success = false;\n            message = 'Unblock script failed: ' + (msg.payload.stderr || 'Unknown error');\n            node.error(`Unblock failed for ${msg._unblock_mac}: code ${msg.payload.code}`);\n            node.error(`stderr: ${msg.payload.stderr}`);\n        } else {\n            node.warn(`Unblock succeeded for ${msg._unblock_mac}`);\n            node.warn(`stdout: ${msg.payload.stdout ? msg.payload.stdout.substring(0, 300) : '(empty)'}`);\n        }\n    }\n\n    // Send result back to UI (include stdout/stderr for debugging)\n    return {\n        topic: 'unblock_result',\n        payload: {\n            success: success,\n            mac: msg._unblock_mac,\n            ip: msg._unblock_ip,\n            message: message,\n            stdout: (msg.payload && msg.payload.stdout) ? msg.payload.stdout : null,\n            stderr: (msg.payload && msg.payload.stderr) ? msg.payload.stderr : null,\n            rawExecPayload: msg.payload\n        }\n    };\n}\n\n// Pass through unknown messages silently\nreturn null;\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 200,
+        "wires": [
+            [
+                "209df0ba4f4f5ff3",
+                "762bc7d50bcd62a3"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "209df0ba4f4f5ff3",
+        "type": "exec",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "sss",
+        "x": 1090,
+        "y": 120,
+        "wires": [
+            [
+                "549acf19b065bcc0"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "policy-handler",
+        "type": "function",
+        "z": "b549eb3e5c3f9704",
+        "g": "1a4f820a2b6f95b0",
+        "name": "Route Policy Actions",
+        "func": "let topic = msg.topic || '';\n\nnode.warn('📨 Route Policy Actions - Topic: ' + topic);\n\nif (topic === 'policy_action') {\n    node.warn('📨 Policy action detected');\n\n    let payload = msg.payload || {};\n    let action = payload.action || '';\n\n    node.warn('📨 Action: ' + action);\n\n    // Route to backend\n    return {\n        method: 'POST',\n        url: 'http://127.0.0.1:1889',\n        headers: {\n            'Content-Type': 'application/json'\n        },\n        payload: JSON.stringify(payload)\n    };\n}\n\nif (topic === 'fetch_policies') {\n    node.warn('📨 Fetching all policies from backend');\n    return {\n        method: 'GET',\n        url: 'http://127.0.0.1:1889',\n        headers: {}\n    };\n}\n\n// Don't route other topics\nnode.warn('⚠️ Unhandled topic: ' + topic);\nreturn null;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 700,
+        "wires": [
+            [
+                "policy-http"
+            ]
+        ]
+    },
+    {
+        "id": "policy-http",
+        "type": "http request",
+        "z": "b549eb3e5c3f9704",
+        "g": "1a4f820a2b6f95b0",
+        "name": "POST to Backend",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1250,
+        "y": 700,
+        "wires": [
+            [
+                "policy-response"
+            ]
+        ]
+    },
+    {
+        "id": "policy-response",
+        "type": "function",
+        "z": "b549eb3e5c3f9704",
+        "g": "1a4f820a2b6f95b0",
+        "name": "Process Backend Response",
+        "func": "// Process response from Python backend\nlet res = msg.payload;\n\n// Log what we received\nnode.warn(`📥 Backend response type: ${typeof res}`);\nnode.warn(`📥 Backend response: ${JSON.stringify(res).substring(0, 150)}`);\n\nif (!res) {\n    node.error(\"Empty response from backend\");\n    return null;\n}\n\n// Handle error responses\nif (res.status === \"error\") {\n    node.status({ fill: \"red\", shape: \"ring\", text: res.message || \"Error\" });\n    node.send([{\n        topic: 'error',\n        payload: { message: res.message || 'Backend error occurred' }\n    }, null]);\n    return null;\n}\n\n// Handle success responses\nif (res.status === \"ok\") {\n    node.status({ fill: \"green\", shape: \"dot\", text: `${res.count || 0} policies` });\n    \n    // Prepare policies message for UI\n    let policiesMsg = {\n        topic: 'policies',\n        payload: []\n    };\n    \n    // Convert backend policies to UI format\n    if (res.policies && Array.isArray(res.policies)) {\n        policiesMsg.payload = res.policies.map(policy => {\n            if (typeof policy === 'string') {\n                return {\n                    destination: policy,\n                    enabled: true,\n                    schedule: { start: '00:00', end: '23:59' }\n                };\n            } else {\n                return {\n                    destination: policy.destination || policy.domain || 'unknown',\n                    enabled: policy.enabled !== false,\n                    schedule: policy.schedule || { start: '00:00', end: '23:59' }\n                };\n            }\n        });\n    }\n    \n    node.warn(`📤 Sending ${policiesMsg.payload.length} policies to UI`);\n    \n    // Send both outputs\n    node.send([\n        {\n            topic: 'policy_action_result',\n            payload: {\n                status: 'ok',\n                message: res.message || 'Success',\n                success: true\n            }\n        },\n        policiesMsg  // Policies list for UI table\n    ]);\n    \n    return null;\n}\n\n// Unknown response format\nnode.warn(`⚠️ Unknown response format`);\nreturn null;",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1540,
+        "y": 700,
+        "wires": [
+            [
+                "762bc7d50bcd62a3"
+            ],
+            [
+                "762bc7d50bcd62a3"
+            ]
+        ]
+    },
+    {
+        "id": "762bc7d50bcd62a3",
+        "type": "uibuilder",
+        "z": "b549eb3e5c3f9704",
+        "g": "1f9c352c3681ac36",
+        "name": "seer-router",
+        "topic": "",
+        "url": "seer-router",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://vscode-remote/ssh-remote+192.168.50.1/home/admin/.node-red/uibuilder/seer-router/?windowId=_blank",
+        "x": 1190,
+        "y": 460,
+        "wires": [
+            [
+                "bf3c9e416f110a7c",
+                "policy-handler"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3601083a420f731e",
+        "type": "exec",
+        "z": "6bb175bb422b67e1",
+        "command": "hostname",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get Hostname",
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "abdc5949d52c20ba"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6aee1c81094e9a18",
+        "type": "exec",
+        "z": "6bb175bb422b67e1",
+        "command": "sqlite3 /home/admin/.node-red/seer_database/seer.db \"SELECT value FROM settings WHERE key='system_version';\"",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get System Vers",
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "bc7b9a879bb3acac"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "dc59129610b23869",
+        "type": "exec",
+        "z": "6bb175bb422b67e1",
+        "command": "uptime -p",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get Uptime",
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "deb194aed8ec687f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "58e4e863fe95032a",
+        "type": "exec",
+        "z": "6bb175bb422b67e1",
+        "command": "date",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get Current Date & Time",
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "37b0c3d5f77d723c"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "be646ec851e58e11",
+        "type": "exec",
+        "z": "6bb175bb422b67e1",
+        "command": "timedatectl | awk -F ': ' '/Time zone/ {print $2}'",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get Time Zone",
+        "x": 420,
+        "y": 500,
+        "wires": [
+            [
+                "890e6986966a62b5"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "fe2a4c0b2ec5a061",
+        "type": "inject",
+        "z": "6bb175bb422b67e1",
+        "name": "Start after 1s",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "x": 140,
+        "y": 680,
+        "wires": [
+            [
+                "92e0388ffc86d851",
+                "706bcf7093c777d5",
+                "3d295ec11b313adf",
+                "ca0445022a7f8337"
+            ]
+        ]
+    },
+    {
+        "id": "92e0388ffc86d851",
+        "type": "exec",
+        "z": "6bb175bb422b67e1",
+        "command": "cat /proc/device-tree/model | tr -d '\\0'",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get Device Model",
+        "x": 430,
+        "y": 680,
+        "wires": [
+            [
+                "8535eafc52c9a525"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "706bcf7093c777d5",
+        "type": "exec",
+        "z": "6bb175bb422b67e1",
+        "command": "echo \"Cores: $(nproc) | Arch: $(getconf LONG_BIT)-bit | Clock speed: $(awk '{printf \\\"%.2f GHz\\\", $1/1000000}' /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq)\"",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get CPU Capacity",
+        "x": 430,
+        "y": 780,
+        "wires": [
+            [
+                "ba7fc30530004bd8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3d295ec11b313adf",
+        "type": "exec",
+        "z": "6bb175bb422b67e1",
+        "command": "awk '/MemTotal/ {printf \"%.2f GB\\n\", $2/1024/1024}' /proc/meminfo",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get Memory Capacity",
+        "x": 440,
+        "y": 880,
+        "wires": [
+            [
+                "dc43a9afe9bec726"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ca0445022a7f8337",
+        "type": "exec",
+        "z": "6bb175bb422b67e1",
+        "command": "df -h --total | grep total | awk '{print $2}' | sed 's/G$/ GB/'",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get Storage Capacity",
+        "x": 440,
+        "y": 980,
+        "wires": [
+            [
+                "3802db215974e320"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "abdc5949d52c20ba",
+        "type": "change",
+        "z": "6bb175bb422b67e1",
+        "name": "Hostname Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "hostname",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 100,
+        "wires": [
+            [
+                "0180184915ba3130"
+            ]
+        ]
+    },
+    {
+        "id": "bc7b9a879bb3acac",
+        "type": "change",
+        "z": "6bb175bb422b67e1",
+        "name": "System Version Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "systemversion",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 200,
+        "wires": [
+            [
+                "0180184915ba3130"
+            ]
+        ]
+    },
+    {
+        "id": "0180184915ba3130",
+        "type": "join",
+        "z": "6bb175bb422b67e1",
+        "name": "General System Info",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": true,
+        "accumulate": true,
+        "timeout": "",
+        "count": "9",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 1110,
+        "y": 600,
+        "wires": [
+            [
+                "a2f79986cb0b5230"
+            ]
+        ]
+    },
+    {
+        "id": "7fab93bb3ec4d037",
+        "type": "inject",
+        "z": "6bb175bb422b67e1",
+        "name": "Start after 1s",
+        "props": [],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "3601083a420f731e",
+                "6aee1c81094e9a18",
+                "dc59129610b23869",
+                "58e4e863fe95032a",
+                "be646ec851e58e11"
+            ]
+        ]
+    },
+    {
+        "id": "deb194aed8ec687f",
+        "type": "change",
+        "z": "6bb175bb422b67e1",
+        "name": "Uptime Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "uptime",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 300,
+        "wires": [
+            [
+                "0180184915ba3130"
+            ]
+        ]
+    },
+    {
+        "id": "37b0c3d5f77d723c",
+        "type": "change",
+        "z": "6bb175bb422b67e1",
+        "name": "Date & Time Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "datentime",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 400,
+        "wires": [
+            [
+                "0180184915ba3130"
+            ]
+        ]
+    },
+    {
+        "id": "890e6986966a62b5",
+        "type": "change",
+        "z": "6bb175bb422b67e1",
+        "name": "Time Zone Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "timezone",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 500,
+        "wires": [
+            [
+                "0180184915ba3130"
+            ]
+        ]
+    },
+    {
+        "id": "8535eafc52c9a525",
+        "type": "change",
+        "z": "6bb175bb422b67e1",
+        "name": "Device Model Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "devicemodel",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 680,
+        "wires": [
+            [
+                "0180184915ba3130"
+            ]
+        ]
+    },
+    {
+        "id": "dc43a9afe9bec726",
+        "type": "change",
+        "z": "6bb175bb422b67e1",
+        "name": "Memory Capacity Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "memorycapacity",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 880,
+        "wires": [
+            [
+                "0180184915ba3130"
+            ]
+        ]
+    },
+    {
+        "id": "3802db215974e320",
+        "type": "change",
+        "z": "6bb175bb422b67e1",
+        "name": "Storage Capacity Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "storagecapacity",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 980,
+        "wires": [
+            [
+                "0180184915ba3130"
+            ]
+        ]
+    },
+    {
+        "id": "ba7fc30530004bd8",
+        "type": "change",
+        "z": "6bb175bb422b67e1",
+        "name": "CPU Capacity Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "cpucapacity",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 780,
+        "wires": [
+            [
+                "0180184915ba3130"
+            ]
+        ]
+    },
+    {
+        "id": "fbde948e1605600a",
+        "type": "switch",
+        "z": "6bb175bb422b67e1",
+        "name": "topic == restart|logout",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "restart",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "logout",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1160,
+        "y": 1000,
+        "wires": [
+            [
+                "eab7812fb9f45ce4"
+            ],
+            [
+                "65f40c877e599dfc"
+            ]
+        ]
+    },
+    {
+        "id": "eab7812fb9f45ce4",
+        "type": "function",
+        "z": "6bb175bb422b67e1",
+        "name": "ACK restart -> trigger exec (2 outputs)",
+        "func": "// Output 1 = ack back to UI via uibuilder\n// Output 2 = trigger for Delay/Exec chain\nvar ack = { topic: 'restart', payload: { restartAck: true, ok: true } };\nvar execMsg = { payload: '', topic: 'exec' };\nreturn [ack, execMsg];",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 900,
+        "wires": [
+            [
+                "a2f79986cb0b5230"
+            ],
+            [
+                "3096ed7d6be4482a"
+            ]
+        ]
+    },
+    {
+        "id": "65f40c877e599dfc",
+        "type": "function",
+        "z": "6bb175bb422b67e1",
+        "name": "ACK logout",
+        "func": "// Acknowledge logout to UI; Node-RED server-side cleanup could go here\nvar out = { topic: 'logout', payload: { logout: true, ok: true } };\nreturn out;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1810,
+        "y": 1020,
+        "wires": [
+            [
+                "a2f79986cb0b5230"
+            ]
+        ]
+    },
+    {
+        "id": "e5bf788044d0e7e9",
+        "type": "debug",
+        "z": "6bb175bb422b67e1",
+        "name": "debug restart exec trigger",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 2150,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "3096ed7d6be4482a",
+        "type": "delay",
+        "z": "6bb175bb422b67e1",
+        "name": "6 seconds delay before reboot",
+        "pauseType": "delay",
+        "timeout": "6",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1850,
+        "y": 740,
+        "wires": [
+            [
+                "19f50744a078feb7",
+                "e5bf788044d0e7e9"
+            ]
+        ]
+    },
+    {
+        "id": "a2f79986cb0b5230",
+        "type": "uibuilder",
+        "z": "6bb175bb422b67e1",
+        "name": "seer-settings",
+        "topic": "",
+        "url": "seer-settings",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://vscode-remote/ssh-remote+192.168.50.1/home/admin/.node-red/uibuilder/seer-settings/?windowId=_blank",
+        "x": 1480,
+        "y": 600,
+        "wires": [
+            [
+                "fbde948e1605600a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9dbd60ce8d219d7a",
+        "type": "inject",
+        "z": "6bb175bb422b67e1",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1090,
+        "y": 740,
+        "wires": [
+            [
+                "eab7812fb9f45ce4"
+            ]
+        ]
+    },
+    {
+        "id": "19f50744a078feb7",
+        "type": "exec",
+        "z": "6bb175bb422b67e1",
+        "command": "sudo /sbin/reboot",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Reboot (DISABLED by default)",
+        "x": 2290,
+        "y": 760,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "65ad7a80fa5fa1c5",
+        "type": "switch",
+        "z": "eea487bd8d3eb486",
+        "name": "Filter Login",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "login",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 690,
+        "y": 220,
+        "wires": [
+            [
+                "9a868c17e959f0c4"
+            ]
+        ]
+    },
+    {
+        "id": "7069cd9a05ee3d4a",
+        "type": "change",
+        "z": "eea487bd8d3eb486",
+        "name": "Extract Username and Password",
+        "rules": [
+            {
+                "t": "set",
+                "p": "username",
+                "pt": "msg",
+                "to": "payload.username",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "password",
+                "pt": "msg",
+                "to": "payload.password",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "SELECT password FROM users WHERE username = ? LIMIT 1;",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "params",
+                "pt": "msg",
+                "to": "[]",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "params[0]",
+                "pt": "msg",
+                "to": "username",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "49a6b897c22e05ca",
+        "type": "sqlite",
+        "z": "eea487bd8d3eb486",
+        "mydb": "3dee361fb9eb970e",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SEER Database",
+        "x": 540,
+        "y": 60,
+        "wires": [
+            [
+                "be4c128d84214b3f"
+            ]
+        ]
+    },
+    {
+        "id": "be4c128d84214b3f",
+        "type": "function",
+        "z": "eea487bd8d3eb486",
+        "name": "Verify Password",
+        "func": "// Verify Password Function - with crypto from global context\nconst crypto = global.get('crypto');\n\nnode.warn(\"=== Login Debug ===\");\n\ntry {\n    const username = msg.username || (msg.payload && msg.payload.username);\n    const password = msg.password || (msg.payload && msg.payload.password);\n\n    node.warn(\"Username: \" + username);\n    node.warn(\"Password length: \" + (password ? password.length : 0));\n\n    // Normalize rows from sqlite node\n    let rows = [];\n    if (Array.isArray(msg.payload)) {\n        rows = msg.payload;\n    } else if (msg.payload && Array.isArray(msg.payload.rows)) {\n        rows = msg.payload.rows;\n    } else if (msg.payload && typeof msg.payload === 'object' && msg.payload.length) {\n        rows = msg.payload;\n    }\n\n    node.warn(\"Rows returned: \" + rows.length);\n    if (rows.length === 0) {\n        msg.payload = { ok: false, error: 'Invalid credentials' };\n        msg.statusCode = 401;\n        return msg;\n    }\n\n    const row = rows[0];\n    node.warn(\"Row keys: \" + Object.keys(row).join(', '));\n\n    const hash = row.password || row.password_hash || row.pass;\n    node.warn(\"Hash found: \" + (hash ? ('YES len=' + hash.length) : 'NO'));\n\n    // Check bcrypt availability\n    const bcrypt = global.get('bcrypt');\n    node.warn(\"bcrypt available: \" + (bcrypt ? 'YES' : 'NO'));\n\n    if (!bcrypt) {\n        msg.payload = { ok: false, error: 'Password verification not configured' };\n        msg.statusCode = 500;\n        return msg;\n    }\n\n    // Compare password\n    const match = bcrypt.compareSync(password, hash);\n    node.warn(\"bcrypt compare result: \" + (match ? 'MATCH' : 'NO MATCH'));\n\n    if (match) {\n        // Generate session token using crypto from global\n        let sessionToken;\n        if (crypto && crypto.randomBytes) {\n            sessionToken = crypto.randomBytes(32).toString('hex');\n        } else {\n            // Fallback if crypto not available\n            const randomPart = Array.from({length: 32}, () => \n                Math.floor(Math.random() * 16).toString(16)\n            ).join('');\n            sessionToken = Date.now().toString(36) + randomPart;\n        }\n        \n        const sessionData = {\n            user: { id: row.id, username: row.username },\n            createdAt: Date.now(),\n            expiresAt: Date.now() + (24 * 60 * 60 * 1000) // 24 hours\n        };\n        \n        // Store session in global context (keyed by token)\n        global.set('session_' + sessionToken, sessionData);\n        \n        node.warn(\"Session created: \" + sessionToken.substring(0, 8) + \"...\");\n        \n        // Return success with token\n        msg.payload = { \n            ok: true, \n            user: { id: row.id, username: row.username },\n            token: sessionToken\n        };\n        msg.statusCode = 200;\n    } else {\n        msg.payload = { ok: false, error: 'Invalid credentials' };\n        msg.statusCode = 401;\n    }\n    return msg;\n\n} catch (err) {\n    node.error(\"Verify function error: \" + err);\n    msg.payload = { ok: false, error: 'Server error' };\n    msg.statusCode = 500;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "d6bff0c722788f82",
+                "5a8ec9a49eea8693"
+            ]
+        ]
+    },
+    {
+        "id": "0b3ad0e874370c56",
+        "type": "http in",
+        "z": "eea487bd8d3eb486",
+        "name": "Login HTTP",
+        "url": "/auth/login",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 330,
+        "y": 300,
+        "wires": [
+            [
+                "9a868c17e959f0c4"
+            ]
+        ]
+    },
+    {
+        "id": "d6bff0c722788f82",
+        "type": "http response",
+        "z": "eea487bd8d3eb486",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 710,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5a8ec9a49eea8693",
+        "type": "function",
+        "z": "eea487bd8d3eb486",
+        "name": "function 3",
+        "func": "return {\n    payload: msg.payload,\n    _socketId: msg._socketId || msg.req?._socketId\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 220,
+        "wires": [
+            [
+                "fb60c424b01bd017"
+            ]
+        ]
+    },
+    {
+        "id": "9a868c17e959f0c4",
+        "type": "function",
+        "z": "eea487bd8d3eb486",
+        "name": "Extract Username and Password",
+        "func": "// Extract Function - uses sanitized inline SQL (safe for constrained usernames)\ntry {\n  // Parse string payload if needed\n  if (typeof msg.payload === 'string') {\n    try {\n      msg.payload = JSON.parse(msg.payload);\n    } catch (e) {\n      node.warn(\"Extract: payload parse failed\");\n    }\n  }\n  \n  // Fallback to req.body if payload not an object\n  if ((!msg.payload || typeof msg.payload !== 'object') && msg.req && msg.req.body && typeof msg.req.body === 'object') {\n    msg.payload = msg.req.body;\n  }\n\n  const data = (msg.payload && typeof msg.payload === 'object') ? msg.payload : {};\n  \n  // Extract username and password\n  let username = (data.username !== undefined) ? String(data.username) : (msg.username ? String(msg.username) : '');\n  let password = (data.password !== undefined) ? String(data.password) : (msg.password ? String(msg.password) : '');\n  \n  // Sanitize username: remove BOM, CR/LF, NBSP and trim\n  username = username.replace(/\\uFEFF/g, '').replace(/[\\r\\n]/g, '').replace(/\\u00A0/g, ' ').trim();\n  \n  // Validate\n  if (!username) {\n    msg.payload = { ok: false, error: 'missing username' };\n    msg.statusCode = 400;\n    return msg;\n  }\n\n  msg.username = username;\n  msg.password = password;\n\n  // Build SQL with escaped username (double single-quotes to escape them)\n  const escapedUsername = username.replace(/'/g, \"''\");\n  msg.topic = \"SELECT rowid AS id, username, password FROM users WHERE username = '\" + escapedUsername + \"' LIMIT 1;\";\n  \n  // Don't use msg.params - this sqlite node doesn't bind parameters\n  delete msg.params;\n  \n  return msg;\n} catch (err) {\n  node.error(\"Extract function error: \" + err);\n  msg.payload = { ok: false, error: 'server error' };\n  msg.statusCode = 500;\n  return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 160,
+        "wires": [
+            [
+                "49a6b897c22e05ca"
+            ]
+        ]
+    },
+    {
+        "id": "fb60c424b01bd017",
+        "type": "uibuilder",
+        "z": "eea487bd8d3eb486",
+        "name": "login",
+        "topic": "",
+        "url": "login",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://vscode-remote/ssh-remote+192.168.50.1/home/admin/.node-red/uibuilder/login/?windowId=_blank",
+        "x": 530,
+        "y": 460,
+        "wires": [
+            [
+                "65ad7a80fa5fa1c5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "7f84f55255ed1bc0",
+        "type": "inject",
+        "z": "bd7698544c43bb28",
+        "name": "Reboot (disabled)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 300,
+        "wires": [
+            [
+                "c3a1faffabc003a2"
+            ]
+        ]
+    },
+    {
+        "id": "c3a1faffabc003a2",
+        "type": "exec",
+        "z": "bd7698544c43bb28",
+        "command": "sudo /sbin/reboot",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Reboot (DISABLED by default)",
+        "x": 490,
+        "y": 300,
+        "wires": [
+            [
+                "e2d68358df787329"
+            ],
+            [
+                "27f387a6b22d9e2b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e2d68358df787329",
+        "type": "debug",
+        "z": "bd7698544c43bb28",
+        "name": "Reboot stdout",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 760,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "27f387a6b22d9e2b",
+        "type": "debug",
+        "z": "bd7698544c43bb28",
+        "name": "Reboot stderr",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 760,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "7d16749d0511c8dc",
+        "type": "inject",
+        "z": "bd7698544c43bb28",
+        "name": "Echo test (append to /tmp)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "echo-test",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "f447a18d29046f4e"
+            ]
+        ]
+    },
+    {
+        "id": "f447a18d29046f4e",
+        "type": "exec",
+        "z": "bd7698544c43bb28",
+        "command": "echo \"NODE-RED REBOOT_TEST: $(date) requested by Node-RED\" >> /tmp/seer-reboot.log",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Echo to /tmp (test)",
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "9acc1fcfa9eaa928"
+            ],
+            [
+                "7f795bfc616aa8f0"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9acc1fcfa9eaa928",
+        "type": "debug",
+        "z": "bd7698544c43bb28",
+        "name": "Echo stdout",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 760,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7f795bfc616aa8f0",
+        "type": "debug",
+        "z": "bd7698544c43bb28",
+        "name": "Echo stderr",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 760,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ac6a4bcd5cfcf401",
+        "type": "inject",
+        "z": "bd7698544c43bb28",
+        "name": "Whoami (which user runs Exec)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 200,
+        "wires": [
+            [
+                "343ba05210d47690"
+            ]
+        ]
+    },
+    {
+        "id": "343ba05210d47690",
+        "type": "exec",
+        "z": "bd7698544c43bb28",
+        "command": "/usr/bin/whoami",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Whoami",
+        "x": 520,
+        "y": 200,
+        "wires": [
+            [
+                "c00ab14b8cdbfe0b"
+            ],
+            [
+                "62102c8dd7856984"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c00ab14b8cdbfe0b",
+        "type": "debug",
+        "z": "bd7698544c43bb28",
+        "name": "Whoami stdout",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 760,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "62102c8dd7856984",
+        "type": "debug",
+        "z": "bd7698544c43bb28",
+        "name": "Whoami stderr",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 760,
+        "y": 220,
+        "wires": []
+    }
+]

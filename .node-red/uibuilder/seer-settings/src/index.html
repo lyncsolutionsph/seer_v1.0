@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>SEER SETTINGS</title>
+
+  <!-- Global theme -->
+  <link rel="stylesheet" href="/seer-theme/index.css">
+
+  <!-- Settings-specific CSS (only dropdown/pad additions — keep the rest of your stylesheet unchanged) -->
+  <link rel="stylesheet" href="/seer-settings/styles.css">
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- Header -->
+    <header class="header">
+      <img src="/seer-theme/assets/company-logo.png" alt="Company Logo" class="logo">
+      <span class="title">SEER</span>
+      <div class="session-controls">
+        <button id="logoutTop" class="logout-btn" aria-label="Log Out">Log Out</button>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul>
+        <li><a href="/seer-dashboard/">DASHBOARD</a></li>
+        <li><a href="/seer-firewall/">FIREWALL</a></li>
+        <li><a href="/seer-router/">ROUTER</a></li>
+        <li><a href="/seer-settings/" class="active">SETTINGS</a></li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="settings-content">
+
+      <!-- LEFT COLUMN -->
+      <div class="settings-section left-column">
+        <h2>SYSTEM INFORMATION</h2>
+
+        <!-- General System Info -->
+        <section class="system-info">
+          <p>General System Information</p>
+        </section>
+
+        <section class="second-block">
+          <p><strong>Hostname: </strong> <span id="hostname"></span></p>
+          <p><strong>System Version:</strong> <span id="systemversion"></span></p>
+          <p><strong>Uptime:</strong> <span id="uptime"></span></p>
+          <p><strong>Current Date & Time:</strong> <span id="datentime"></span></p>
+          <p><strong>Time Zone:</strong> <span id="timezone"></span></p>
+        </section>
+
+        <section class="system-info">
+          <p>Hardware Information</p>
+        </section>
+
+
+        <section class="second-block">
+          <p><strong>Device Model:</strong> <span id="devicemodel"></span></p>
+          <p><strong>CPU Capacity:</strong> <span id="cpucapacity"></span></p>
+          <p><strong>Memory Capacity:</strong> <span id="memorycapacity"></span></p>
+          <p><strong>Storage Capacity:</strong> <span id="storagecapacity"></span></p>
+        </section>
+
+      
+        <!-- Update button pad -->
+        <section class="second-block hardware-pad" aria-hidden="false">
+          <div class="hardware-pad-inner">
+            <div id="umUpdate" class="hardware-square-pad-single" role="group" aria-expanded="false">
+              <button class="hardware-action-btn-single" aria-label="Update system">
+                Update
+              </button>
+              <div class="hardware-feedback" aria-live="polite" role="status"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Restart button pad -->
+        <section class="second-block hardware-pad" aria-hidden="false">
+          <div class="hardware-pad-inner">
+            <div id="umDropdown" class="hardware-square-pad-single" role="group" aria-expanded="false">
+              <button id="umToggle" class="hardware-action-btn-single" aria-label="Restart system">
+                Restart
+              </button>
+              <div id="umFeedback" class="hardware-feedback" aria-live="polite" role="status"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="settings-section right-column">
+        <h2>USER MANAGEMENT</h2>
+
+ 
+        <section class="user-mgmt">
+          <p>User List</p>
+        </section>
+
+
+        <section id="user-list" class="content-section">
+          <div class="user-list-table">
+            <div class="table-header">
+              <div>Username</div>
+              <div>Role</div>
+              <div>Status</div>
+              <div>Actions</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="user-mgmt">
+          <p>Network Interface</p>
+        </section>
+
+        <!-- Network Interface Table -->
+        <section id="network-list" class="content-section">
+          <div class="network-list-table">
+            <div class="table-header">
+              <div>Interface ID</div>
+              <div>Speed</div>
+              <div>Status</div>
+              <div>Last Update</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </main>
+  </div>
+  </div>
+
+  <div id="actionOverlay" class="action-overlay" aria-hidden="true" hidden>
+    <div class="action-overlay-content" role="status" aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <div class="action-overlay-message">Restarting...</div>
+    </div>
+  </div>
+
+
+  <script type="module" src="/seer-settings/index.js"></script>
+</body>
+
+</html>

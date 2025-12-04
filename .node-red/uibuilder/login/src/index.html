@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>SEER Login</title>
+	<link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+	<!--
+			Component wrapper: set `data-endpoint` to configure the POST URL
+			Example: <div data-component="seer-login" data-endpoint="/auth/login"></div>
+		-->
+	<div data-component="seer-login" data-endpoint="/auth/login">
+		<div class="seer-login__wrap">
+			<section class="seer-login__card" aria-labelledby="seer-login-heading">
+				<div class="seer-login__brand">
+					<img class="seer-login__logo" src="/seer-theme/assets/company-logo.png" alt="Company logo" />
+					<div class="seer-login__company">SEER</div>
+				</div>
+				<h1 class="seer-login__title">Login</h1>
+
+
+				<form class="seer-login__form" autocomplete="on">
+					<div class="seer-login__field">
+						<label class="seer-login__label seer-login__label--username">Username</label>
+						<input class="seer-login__input seer-login__username" name="username" type="text" inputmode="text" required autocomplete="username" />
+					</div>
+
+					<div class="seer-login__field">
+						<label class="seer-login__label seer-login__label--password">Password</label>
+						<div class="seer-login__pw-row">
+							<input class="seer-login__input seer-login__password" name="password" type="password" required autocomplete="current-password" />
+							<button type="button" class="seer-login__pw-toggle" aria-label="Show password">
+									<!-- eye (show) -->
+									<svg class="seer-login__icon seer-login__icon--show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+										<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
+										<circle cx="12" cy="12" r="3"></circle>
+									</svg>
+									<!-- eye-off (hide) - combined eye + slash for reliable rendering -->
+									<svg class="seer-login__icon seer-login__icon--hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+										<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
+										<circle cx="12" cy="12" r="3"></circle>
+										<path d="M3 3l18 18"></path>
+									</svg>
+								</button>
+						</div>
+						</label>
+
+						<!-- Remember me removed as requested -->
+
+						<div class="seer-login__actions">
+							<button type="submit" class="seer-login__btn seer-login__btn--primary">Login</button>
+						</div>
+
+						<div class="seer-login__status" role="status" aria-live="polite"></div>
+				</form>
+			</section>
+		</div>
+	</div>
+
+	<script>
+		(function(){
+				// Find all instances and initialize them independently
+				const roots = document.querySelectorAll('[data-component="seer-login"]');
+				roots.forEach(initInstance);
+
+				function initInstance(root){
+					const endpoint = root.dataset.endpoint || '/auth/login';
+
+					// Generate a short uid for ARIA ids
+					const uid = Math.random().toString(36).slice(2,9);
+					const title = root.querySelector('.seer-login__title');
+					if (title) title.id = 'seer-login-heading-' + uid;
+					const card = root.querySelector('.seer-login__card');
+					if (card && title) card.setAttribute('aria-labelledby', title.id);
+
+
+						const form = root.querySelector('.seer-login__form');
+						const username = root.querySelector('.seer-login__username');
+						const password = root.querySelector('.seer-login__password');
+						const pwToggle = root.querySelector('.seer-login__pw-toggle');
+						const submitBtn = form && form.querySelector('.seer-login__btn--primary');
+						const statusEl = root.querySelector('.seer-login__status');
+
+					if (pwToggle && password){
+						// Ensure only one icon is visible initially and toggle explicitly
+						const showIcon = pwToggle.querySelector('.seer-login__icon--show');
+						const hideIcon = pwToggle.querySelector('.seer-login__icon--hide');
+						if (showIcon) showIcon.style.display = (password.type === 'password') ? 'block' : 'none';
+						if (hideIcon) hideIcon.style.display = (password.type === 'text') ? 'block' : 'none';
+
+						// assign ids to inputs and for attributes to labels for accessibility
+						try {
+							const uname = username;
+							const pwd = password;
+							const uLabel = root.querySelector('.seer-login__label--username');
+							const pLabel = root.querySelector('.seer-login__label--password');
+							if (uname && uLabel){
+								uname.id = 'seer-username-' + uid;
+								uLabel.setAttribute('for', uname.id);
+							}
+							if (pwd && pLabel){
+								pwd.id = 'seer-password-' + uid;
+								pLabel.setAttribute('for', pwd.id);
+							}
+						} catch(e) {
+							// ignore
+						}
+
+						pwToggle.addEventListener('click', () => {
+							// determine current visibility, then toggle
+							const currentlyVisible = password.type === 'text';
+							password.type = currentlyVisible ? 'password' : 'text';
+							// After toggling, set icons so only the correct one shows
+							if (showIcon) showIcon.style.display = (password.type === 'password') ? 'block' : 'none';
+							if (hideIcon) hideIcon.style.display = (password.type === 'text') ? 'block' : 'none';
+							// update aria-label
+							pwToggle.setAttribute('aria-label', (password.type === 'text') ? 'Hide password' : 'Show password');
+						});
+					}
+
+					// no demo button in this variant
+
+					if (!form) return;
+					
+					// Wait for uibuilder to be ready and listen for messages
+					function setupUibuilder() {
+						if (window.uibuilder) {
+							window.uibuilder.start();
+							window.uibuilder.onChange('msg', (msg) => {
+								if (!msg || !msg.payload) return;
+								const data = msg.payload;
+								
+								if (data.ok) {
+									if (statusEl) statusEl.textContent = 'Login successful.';
+									if (data.redirect) location.href = data.redirect;
+								} else {
+									if (statusEl) statusEl.textContent = data.error || 'Login failed';
+								}
+								
+								if (submitBtn) { 
+									submitBtn.disabled = false; 
+									submitBtn.textContent = 'Login'; 
+								}
+							});
+						}
+					}
+					
+					// Try to setup uibuilder after a short delay
+					setTimeout(setupUibuilder, 100);
+					
+					form.addEventListener('submit', async (e) => {
+						e.preventDefault();
+						if (statusEl) statusEl.textContent = '';
+
+						const u = username && username.value.trim();
+						const p = password && password.value;
+						if (!u || !p){ if (statusEl) statusEl.textContent = 'Please fill both fields.'; return; }
+
+						if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Signing in...'; }
+
+						// Send credentials via uibuilder websocket to Node-RED
+						if (window.uibuilder && window.uibuilder.send) {
+							window.uibuilder.send({
+								topic: 'login',
+								payload: { username: u, password: p }
+							});
+						} else {
+							// Fallback to HTTP POST if uibuilder not available
+							try {
+								const resp = await fetch(endpoint, {
+									method: 'POST', headers: {'Content-Type':'application/json'},
+									body: JSON.stringify({ username: u, password: p })
+								});
+
+								if (!resp.ok){
+									const text = await resp.text().catch(()=>resp.statusText);
+									if (statusEl) statusEl.textContent = 'Login failed: ' + (text || resp.statusText);
+									return;
+								}
+
+								const data = await resp.json().catch(()=> ({}));
+								if (statusEl) statusEl.textContent = 'Login successful.';
+								if (data && data.redirect) location.href = data.redirect;
+							} catch(err){
+								if (statusEl) statusEl.textContent = 'Network error. Check Node-RED endpoint.';
+							} finally {
+								if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Login'; }
+							}
+						}
+					});
+				}
+			})();
+	</script>
+</body>
+
+</html>

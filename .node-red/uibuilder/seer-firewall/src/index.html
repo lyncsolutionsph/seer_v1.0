@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SEER FIREWALL</title>
+
+    <!-- universal theme linked -->
+    <link rel="stylesheet" href="/seer-theme/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <img src="/seer-theme/assets/company-logo.png" alt="Company Logo" class="logo">
+            <span class="title">SEER</span>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul>
+                <li><a href="/seer-dashboard/">DASHBOARD</a></li>
+                <li><a href="/seer-firewall/" class="active">FIREWALL</a></li>
+                <li><a href="/seer-router/">ROUTER</a></li>
+                <li><a href="/seer-settings/">SETTINGS</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="firewall-content">
+            <section id="firewall" class="content-section">
+                <div class="policy-header">
+                    <h1>POLICY RULESET</h1>
+                    <p class="subtitle">Control access to network services</p>
+                </div>
+                <div class="firewall-table-container">
+                    <table class="firewall-table">
+                        <thead>
+                            <tr>
+                                <th class="description-col">Service Description</th>
+                                <th class="port-col">Port</th>
+                                <th class="usage-col">Usage</th>
+                                <th class="toggle-col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="policy-table-body">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Custom Ruleset Section -->
+                <div class="custom-rules-section" style="margin-top: 40px;">
+                    <div class="policy-header">
+                        <h2>CUSTOM RULESET</h2>
+                        <p class="subtitle">User-defined firewall rules</p>
+                    </div>
+                    <div class="firewall-table-container">
+                        <div style="margin-bottom: 15px; display: flex; gap: 10px;">
+                            <button id="add-custom-rule-btn" class="action-btn" style="padding: 8px 16px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">+ Add Custom Rule</button>
+                            <button id="delete-custom-rule-btn" class="action-btn" style="padding: 8px 16px; background: #e74c3c; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Delete Selected</button>
+                        </div>
+                        <table class="firewall-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px; text-align: center;">
+                                        <input type="checkbox" id="select-all-custom" title="Select All">
+                                    </th>
+                                    <th class="description-col">Service Description</th>
+                                    <th class="port-col">Port</th>
+                                    <th class="usage-col">Usage</th>
+                                    <th class="toggle-col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="custom-rules-table-body">
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 30px; color: #7f8c8d;">
+                                        No custom rules defined. Click "+ Add Custom Rule" to create one.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; align-items: center; justify-content: center;">
+        <div
+            style="background: white; padding: 30px; border-radius: 8px; max-width: 450px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+            <h3 id="modal-title" style="margin: 0 0 15px 0; font-size: 18px; color: #2c3e50;">Confirm Action</h3>
+            <p id="modal-message" style="margin: 0 0 10px 0; color: #555; line-height: 1.5;"></p>
+            <p id="modal-warning" style="margin: 0 0 20px 0; color: #e74c3c; font-size: 13px;"></p>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button id="modal-cancel" style="padding: 10px 24px; background: #95a5a6; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Cancel</button>
+                <button id="modal-confirm" style="padding: 10px 24px; background: #e74c3c; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Custom Rule Modal -->
+    <div id="add-rule-modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10000; align-items: center; justify-content: center;">
+        <div
+            style="background: white; padding: 30px; border-radius: 8px; max-width: 500px; width: 90%; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+            <h3 style="margin: 0 0 20px 0; font-size: 18px; color: #2c3e50;">Add Custom Rule</h3>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #555; font-weight: bold; font-size: 13px;">Service Name</label>
+                <input type="text" id="rule-name" placeholder="e.g., Custom Application" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #555; font-weight: bold; font-size: 13px;">Description</label>
+                <input type="text" id="rule-description" placeholder="e.g., Custom service for internal tools" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                <div>
+                    <label style="display: block; margin-bottom: 5px; color: #555; font-weight: bold; font-size: 13px;">Port</label>
+                    <input type="text" id="rule-port" placeholder="e.g., 8080" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 5px; color: #555; font-weight: bold; font-size: 13px;">Protocol</label>
+                    <select id="rule-protocol" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                       <option value="TCP">TCP</option>
+                       <option value="UDP">UDP</option>
+                       <option value="Both">TCP/UDP</option>
+                   </select>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                <div>
+                    <label style="display: block; margin-bottom: 5px; color: #555; font-weight: bold; font-size: 13px;">Usage Category</label>
+                    <select id="rule-usage" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                       <option value="Management">Management</option>
+                       <option value="Application">Application</option>
+                       <option value="Database">Database</option>
+                       <option value="Web Service">Web Service</option>
+                       <option value="API">API</option>
+                       <option value="Custom">Custom</option>
+                   </select>
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 5px; color: #555; font-weight: bold; font-size: 13px;">Action</label>
+                    <select id="rule-action" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                       <option value="ACCEPT">ACCEPT (Allow)</option>
+                       <option value="DROP">DROP (Block)</option>
+                   </select>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; color: #555; font-weight: bold; font-size: 13px;">Access From</label>
+                <div style="display: flex; gap: 15px;">
+                    <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                       <input type="checkbox" id="rule-access-lan" checked>
+                       <span style="font-size: 13px;">LAN</span>
+                   </label>
+                    <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                       <input type="checkbox" id="rule-access-tailnet" checked>
+                       <span style="font-size: 13px;">Tailscale</span>
+                   </label>
+                    <label style="display: flex; align-items: center; gap: 5px; cursor: pointer;">
+                       <input type="checkbox" id="rule-access-wan">
+                       <span style="font-size: 13px;">WAN (Internet)</span>
+                   </label>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button id="add-rule-cancel" style="padding: 10px 24px; background: #95a5a6; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Cancel</button>
+                <button id="add-rule-save" style="padding: 10px 24px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Add Rule</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>SEER DASHBOARD</title>
+
+    <!-- universal theme linked -->
+    <link rel="stylesheet" href="/seer-theme/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <img src="/seer-theme/assets/company-logo.png" alt="Company Logo" class="logo">
+            <span class="title">SEER</span>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul>
+                <li><a href="/seer-dashboard/" class="active">DASHBOARD</a></li>
+                <li><a href="/seer-firewall/">FIREWALL</a></li>
+                <li><a href="/seer-router/">ROUTER</a></li>
+                <li><a href="/seer-settings/">SETTINGS</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="dashboard-content">
+            <h2>REAL TIME MONITORING</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>CPU</h3>
+                    <div class="cpu-box">
+                        <canvas id="cpuChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>EVENT LOGS OVERVIEW</h3>
+                    <table id="overview-table" class="log-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Type</th>
+                                <th>Source</th>
+                                <th>Destination</th>
+                                <th>Alert</th>
+                            </tr>
+                        </thead>
+                        <tbody id="alertsBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h3>MEMORY</h3>
+                    <div class="memory">
+                        <canvas id="memoryChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>DISK</h3>
+                    <div class="diskusage">
+                        <canvas id="diskPie"></canvas>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+
+
+<!-- external lib for chart.js & uibuilder -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/seer-dashboard/uibuilderfe.min.js"></script>
+<!-- load JS logic -->
+<script type="module" src="/seer-dashboard/index.js"></script>
+
+</html>

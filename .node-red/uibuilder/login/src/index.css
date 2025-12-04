@@ -1,0 +1,305 @@
+:root {
+	/* Page background: deep navy */
+	--bg: #3e4a56;
+	/* Card (login box) color */
+	--card: rgb(13, 59, 102);
+	--muted: rgba(255, 255, 255, 0.85);
+	--icon: #ffffff;
+	/* Accent used for text on white buttons */
+	--accent: rgb(13, 59, 102);
+	--glass: #ffffff;
+	--input-border: rgba(0, 0, 0, 0.12);
+	--success: #16a34a;
+}
+
+* {
+	box-sizing: border-box
+}
+
+html,
+body {
+	height: 100%
+}
+
+body {
+	margin: 0;
+	font-family: "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif;
+	color: #0b2233;
+}
+
+/* Keep global body minimal. When the component is mounted at the page root
+   (direct child of body) apply page-level centering and page background so
+   other components are not affected. */
+body>[data-component="seer-login"] {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--bg);
+	box-sizing: border-box;
+	padding: 28px;
+}
+
+.seer-login__wrap {
+	width: 100%;
+	padding: 8px
+}
+
+.seer-login__card {
+	width: 100%;
+	max-width: 380px;
+	background: var(--card);
+	border-radius: 10px;
+	padding: 16px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	color: #fff;
+	margin: 0 auto
+}
+
+.seer-login__brand {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	justify-content: center;
+	margin-bottom: 8px
+}
+
+.seer-login__logo {
+	display: block;
+	height: 56px;
+	margin: 0
+}
+
+.seer-login__company {
+	color: #fff;
+	font-weight: 800;
+	font-size: 30px;
+	line-height: 56px
+}
+
+.seer-login__title {
+	margin: 8px 0 10px;
+	font-size: 1.05rem;
+	text-align: center;
+	color: #fff
+}
+
+.seer-login__lead {
+	color: var(--muted);
+	margin: 0 0 10px;
+	font-size: 0.9rem;
+	text-align: center
+}
+
+.seer-login__form {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	max-width: 340px;
+	margin: 0 auto
+}
+
+.seer-login__label {
+	font-size: 0.85rem;
+	color: var(--muted);
+	display: block
+}
+
+.seer-login__input {
+	display: block;
+	width: 100%;
+	background: var(--glass);
+	border: 1px solid var(--input-border);
+	padding: 8px 10px;
+	border-radius: 8px;
+	color: #0b2233;
+	font-size: 0.92rem
+}
+
+.seer-login__pw-row {
+	display: block;
+	position: relative
+}
+
+.seer-login__pw-row .seer-login__input {
+	flex: 1;
+	padding-right: 44px
+}
+
+/* field wrapper to avoid external label display rules */
+.seer-login__field {
+	display: block;
+	margin-bottom: 12px
+}
+
+.seer-login__label {
+	display: block;
+	margin-bottom: 6px
+}
+
+/* position the toggle inside the right edge of the input */
+.seer-login__pw-toggle {
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(255, 255, 255, 0.12);
+	border: 0;
+	padding: 6px;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 6px;
+	color: var(--icon);
+	z-index: 2
+}
+
+.seer-login__icon {
+	width: 18px;
+	height: 18px;
+	display: block;
+	stroke: currentColor
+}
+
+.seer-login__icon--hide {
+	display: none
+}
+
+.seer-login__pw-toggle.is-active .seer-login__icon--show {
+	display: none
+}
+
+.seer-login__pw-toggle.is-active .seer-login__icon--hide {
+	display: block
+}
+
+/* hover / focus affordance for toggle inside input */
+.seer-login__pw-toggle:hover {
+	background: rgba(0, 0, 0, 0.06)
+}
+
+.seer-login__pw-toggle:focus {
+	outline: 3px solid rgba(13, 59, 102, 0.12);
+	outline-offset: 2px;
+	border-radius: 6px
+}
+
+.seer-login__actions {
+	display: block;
+	margin-top: 20px
+}
+
+.seer-login__btn {
+	padding: 10px 12px;
+	border-radius: 8px;
+	border: 0;
+	cursor: pointer;
+	font-weight: 600;
+	width: 100%;
+	box-sizing: border-box
+}
+
+.seer-login__btn--primary {
+	background: #ffffff;
+	color: var(--accent);
+	font-weight: 700;
+	font-family: "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif;
+	margin-top: 10px
+}
+
+.seer-login__btn--ghost {
+	background: transparent;
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	color: var(--muted)
+}
+
+.seer-login__status {
+	margin-top: 12px;
+	color: var(--muted);
+	font-size: 0.9rem;
+	text-align: center
+}
+
+.seer-login__status:empty {
+	display: none
+}
+
+.seer-login__hint {
+	display: block;
+	margin-top: 12px;
+	text-align: center;
+	color: var(--muted);
+	opacity: 0.9
+}
+
+/* Hide native browser password reveal controls inside this component */
+.seer-login__pw-row .seer-login__input[type="password"] {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.seer-login__pw-row .seer-login__input[type="password"]::-ms-reveal,
+.seer-login__pw-row .seer-login__input[type="password"]::-ms-clear {
+	display: none;
+}
+
+/* WebKit / Blink attempts to target multiple possible pseudo-elements */
+.seer-login__pw-row .seer-login__input[type="password"]::-webkit-password-reveal,
+.seer-login__pw-row .seer-login__input[type="password"]::-webkit-password-reveal-button,
+.seer-login__pw-row .seer-login__input[type="password"]::-webkit-textfield-decoration-button,
+.seer-login__pw-row .seer-login__input[type="password"]::-webkit-credentials-auto-fill-button,
+.seer-login__pw-row .seer-login__input[type="password"]::-webkit-textfield-decoration-container {
+	display: none !important;
+	-webkit-appearance: none !important;
+}
+
+/* Ensure our toggle stays above any native UI */
+.seer-login__pw-toggle {
+	z-index: 5
+}
+
+@media (max-width:420px) {
+	.seer-login__wrap {
+		padding: 12px
+	}
+
+	.seer-login__card {
+		padding: 14px;
+		max-width: 100%
+	}
+
+	.seer-login__brand {
+		gap: 8px
+	}
+
+	.seer-login__logo {
+		height: 40px
+	}
+
+	/* scale company text to match logo on small screens */
+	.seer-login__company {
+		font-size: 30px;
+		line-height: 40px
+	}
+
+	.seer-login__form {
+		max-width: 100%
+	}
+}
+
+.seer-login__btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed
+}
+
+/* small focus styles (scoped) */
+.seer-login__input:focus,
+.seer-login__pw-toggle:focus,
+.seer-login__btn:focus {
+	outline: 3px solid rgba(13, 59, 102, 0.12);
+	outline-offset: 2px
+}

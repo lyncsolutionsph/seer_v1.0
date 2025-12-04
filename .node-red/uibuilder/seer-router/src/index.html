@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SEER ROUTER</title>
+
+    <!-- universal theme linked -->
+    <link rel="stylesheet" href="/seer-theme/index.css">
+
+    <!-- Load Vue.js first -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Load uibuilder library - FIXED PATH -->
+    <script src="../uibuilder/uibuilder.iife.min.js"></script>
+
+    <!-- Load your custom JavaScript LAST with defer attribute -->
+    <script src="./index.js" defer></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <img src="/seer-theme/assets/company-logo.png" alt="Company Logo" class="logo">
+            <span class="title">SEER</span>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul>
+                <li><a href="/seer-dashboard/">DASHBOARD</a></li>
+                <li><a href="/seer-firewall/">FIREWALL</a></li>
+                <li><a href="/seer-router/" class="active">ROUTER</a></li>
+                <li><a href="/seer-settings/">SETTINGS</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="router-content">
+            <!-- Lease Content -->
+            <section id="Lease" class="content-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h1 style="margin: 0;">CONNECTED DEVICES</h1>
+                    <!-- Toolbar for Lease section -->
+                    <div class="connected-devices-toolbar"
+                        style="margin: 0; display:flex; gap:8px; align-items:center;">
+                        <button class="btn-remove-device" @click="removeSelectedDevices">✘ Remove</button>
+                        <!-- Blocked devices modal trigger -->
+                        <button class="btn-blocked" @click="openBlockedModal">Removed Devices</button>
+                    </div>
+                </div>
+
+                <div class="router-leases-table">
+                    <div class="table-header">
+                        <div> </div>
+                        <div>Host Name</div>
+                        <div>IP Address</div>
+                        <div>MAC Address</div>
+                        <div>Device Status</div>
+                        <div>Device Type</div>
+                        <div>Lease Up Time</div>
+                        <div>Options</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Device Details Modal -->
+            <div class="modal-overlay" id="deviceModal" @click.self="closeModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Device Details</h2>
+                        <button class="modal-close" @click="closeModal">&times;</button>
+                    </div>
+                    <div class="modal-body" v-if="selectedDevice">
+                        <div class="device-detail-row">
+                            <div class="device-detail-label">Host Name:</div>
+                            <div class="device-detail-value">{{ selectedDevice.hostname || 'N/A' }}</div>
+                        </div>
+                        <div class="device-detail-row">
+                            <div class="device-detail-label">IP Address:</div>
+                            <div class="device-detail-value">{{ selectedDevice.ip || 'N/A' }}</div>
+                        </div>
+                        <div class="device-detail-row">
+                            <div class="device-detail-label">MAC Address:</div>
+                            <div class="device-detail-value">{{ selectedDevice.mac || 'N/A' }}</div>
+                        </div>
+                        <div class="device-detail-row">
+                            <div class="device-detail-label">Device Status:</div>
+                            <div class="device-detail-value">
+                                <span :class="'status-' + selectedDevice.status">{{ selectedDevice.status || 'N/A' }}</span>
+                            </div>
+                        </div>
+                        <div class="device-detail-row">
+                            <div class="device-detail-label">Device Type:</div>
+                            <div class="device-detail-value">{{ selectedDevice.deviceType || 'N/A' }}</div>
+                        </div>
+                        <div class="device-detail-row">
+                            <div class="device-detail-label">Interface:</div>
+                            <div class="device-detail-value">{{ selectedDevice.interface || 'N/A' }}</div>
+                        </div>
+                        <div class="device-detail-row">
+                            <div class="device-detail-label">Lease Type:</div>
+                            <div class="device-detail-value">{{ selectedDevice.leaseType || 'N/A' }}</div>
+                        </div>
+                        <div class="device-detail-row">
+                            <div class="device-detail-label">Lease Time:</div>
+                            <div class="device-detail-value">{{ selectedDevice.leaseTime || 'N/A' }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blocked Devices Modal -->
+            <div id="blockedModal" class="modal-overlay" :class="{ active: showBlockedModal }"
+                @click.self="closeBlockedModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Removed Devices</h2>
+                        <button class="modal-close" @click="closeBlockedModal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div v-if="blockedDevices.length === 0">No removed devices.</div>
+                        <table v-else class="blocked-table" style="width:100%; border-collapse:collapse;">
+                            <thead>
+                                <tr>
+                                    <th>Host</th>
+                                    <th>IP</th>
+                                    <th>MAC</th>
+                                    <th>Blocked Until</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="device in blockedDevices" :key="device.mac">
+                                    <td>{{ device.hostname || '—' }}</td>
+                                    <td>{{ device.ip || '—' }}</td>
+                                    <td>{{ device.mac }}</td>
+                                    <td>{{ device.expires ? new Date(device.expires * 1000).toLocaleString() : '—' }}
+                                    </td>
+                                    <td><button class="btn-unblock" @click="confirmUnblock(device)">Unblock</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Temporal Content -->
+             <section id="Temporal" class="content-section">
+                <h1>TEMPORAL POLICIES</h1>
+            
+                <!-- Toolbar -->
+                <div class="temporal-toolbar">
+                    <button class="btn-add">➕ Add</button>
+                    <button class="btn-delete">❌ Delete</button>
+                    <button class="btn-edit">✏️ Edit</button>
+                    <input type="text" id="searchInput" class="search-bar" placeholder="Search Bar">
+                    <button class="btn-filter">🔍 Filter</button>
+            
+                    <select id="filterInput" class="filter-dropdown">
+                        <option value="all">Filter : All</option>
+                        <option value="enabled">Filter: Enabled</option>
+                        <option value="disabled">Filter: Disabled</option>
+                    </select>
+                </div>
+            
+                <!-- Table -->
+                <div class="router-temporal-table">
+                    <div class="table-header">
+                        <div></div>
+                        <div>#</div>
+                        <div>POLICY</div>
+                        <div>DESTINATION</div>
+                        <div>ENABLE</div>
+                        <div>SCHEDULE</div>
+                    </div>
+                    <template v-if="filteredPolicies && filteredPolicies.length">
+                        <div class="table-row" v-for="(policy, idx) in filteredPolicies" :key="idx">
+                            <div><input type="checkbox" v-model="policy.selected"></div>
+                            <div>{{ idx + 1 }}</div>
+                            <div>Block {{ policy.destination }}</div>
+                            <div>{{ policy.destination }}</div>
+                            <div>
+                                <!-- ⭐ Toggle Box: Green = Enabled/Blocking, Red = Disabled/Not Blocking -->
+                                <div class="enable-box" 
+                                     :style="{ backgroundColor: policy.enabled ? '#4CAF50' : '#f44336' }"
+                                     @click="togglePolicyEnable(policy)"
+                                     :title="policy.enabled ? 'Click to disable (stop blocking)' : 'Click to enable (start blocking)'"
+                                     style="cursor:pointer; width:20px; height:20px; border-radius:4px; margin: 0 auto;">
+                                </div>
+                            </div>
+                            <div>{{ formatScheduleTime(policy.schedule) }}</div>
+                        </div>
+                    </template>
+            
+                    <div v-else class="table-row">
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 20px;">
+                            No policies found.
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Modal for Add/Edit -->
+                <div id="addModal" class="modal">
+                    <div class="modal-content">
+                        <h2>Add Temporal Policy (Board-Wide)</h2>
+            
+                        <label for="appDropdown">Destination</label>
+                        <select id="appDropdown" class="form-control">
+                            <option value="">Select Application</option>
+                            <option value="facebook.com">Facebook</option>
+                            <option value="youtube.com">YouTube</option>
+                            <option value="tiktok.com">TikTok</option>
+                            <option value="instagram.com">Instagram</option>
+                            <option value="pornhub.com">Adult Site</option>
+                        </select>
+            
+                        <label>Website(s) to Block:</label>
+                        <input type="text" id="website" placeholder="Enter website domain (e.g., facebook.com)"
+                            style="width:100%;margin-bottom:15px;" required>
+            
+                        <label>Schedule:</label>
+                        <div
+                            style="display:grid;grid-template-columns:1fr 30px 1fr;gap:10px;align-items:center;margin-bottom:15px;">
+                            <div>
+                                <label style="font-size:0.9em;">Start Time</label>
+                                <input type="time" id="start-time" style="width:100%;" required>
+                            </div>
+                            <div style="text-align:center;">to</div>
+                            <div>
+                                <label style="font-size:0.9em;">End Time</label>
+                                <input type="time" id="end-time" style="width:100%;" required>
+                            </div>
+                        </div>
+            
+                        <div style="margin:15px 0;padding:10px;background:#f5f5f5;border-radius:4px;font-size:0.9em;color:#555;">
+                            Autofiltering ensures the block is enforced only during the specified time window.
+                        </div>
+            
+                        <div class="modal-actions">
+                            <button id="savePolicy">Save Policy</button>
+                            <button id="closeModal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+</body>
+
+</html>

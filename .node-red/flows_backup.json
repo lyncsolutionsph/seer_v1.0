@@ -1,0 +1,342 @@
+[
+    {
+        "id": "a48e7f01e1f5ee5a",
+        "type": "tab",
+        "label": "Theme",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "638b57ebb91762a5",
+        "type": "tab",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e23879a9835e6a33",
+        "type": "tab",
+        "label": "Firewall",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "425bdf2de58410af",
+        "type": "tab",
+        "label": "Router",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b4a5bfc25e8e21b6",
+        "type": "tab",
+        "label": "Settings",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b0b6774a82673c3f",
+        "type": "uibuilder",
+        "z": "a48e7f01e1f5ee5a",
+        "name": "seer-theme",
+        "topic": "",
+        "url": "seer-theme",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://file/home/admin/.node-red/uibuilder/seer-theme/?windowId=_blank",
+        "x": 170,
+        "y": 40,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "beb484911b29196f",
+        "type": "inject",
+        "z": "638b57ebb91762a5",
+        "name": "get SEER CPU (every 15s)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "6ecb729a154b9e5d"
+            ]
+        ]
+    },
+    {
+        "id": "56edd53026095dbd",
+        "type": "function",
+        "z": "638b57ebb91762a5",
+        "name": "function 1",
+        "func": "// Extract CPU info\n\nlet data = msg.payload;\nlet cores = data.cpus || [];\nlet avg = data.cpu || (cores.reduce((a, b)=> a+b, 0)/cores.length);\n\nmsg.topic = \"CPU Usage\";\nmsg.payload = {\n    timestamp: new Date().toLocaleTimeString(),\n    cores: cores,\n    average: avg\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 260,
+        "wires": [
+            [
+                "925bbfbc626506da"
+            ]
+        ]
+    },
+    {
+        "id": "5bad8203b23ed48d",
+        "type": "debug",
+        "z": "638b57ebb91762a5",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "925bbfbc626506da",
+        "type": "uibuilder",
+        "z": "638b57ebb91762a5",
+        "name": "seer-dashboard",
+        "topic": "",
+        "url": "seer-dashboard",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://file/home/admin/.node-red/uibuilder/seer-dashboard/?windowId=_blank",
+        "x": 680,
+        "y": 380,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6ecb729a154b9e5d",
+        "type": "CPUs",
+        "z": "638b57ebb91762a5",
+        "name": "CPU Info",
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "56edd53026095dbd"
+            ]
+        ]
+    },
+    {
+        "id": "fe76b8b8fb47d856",
+        "type": "uibuilder",
+        "z": "e23879a9835e6a33",
+        "name": "seer-firewall",
+        "topic": "",
+        "url": "seer-firewall",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://file/home/admin/.node-red/uibuilder/seer-firewall/?windowId=_blank",
+        "x": 260,
+        "y": 60,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9c11242f90c9b742",
+        "type": "uibuilder",
+        "z": "425bdf2de58410af",
+        "name": "seer-router",
+        "topic": "",
+        "url": "seer-router",
+        "okToGo": true,
+        "fwdInMessages": false,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://file/home/admin/.node-red/uibuilder/seer-router/?windowId=_blank",
+        "x": 230,
+        "y": 60,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0924bac3cdb112e8",
+        "type": "inject",
+        "z": "b4a5bfc25e8e21b6",
+        "name": "Inject to Start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "3e3cebc9df90bd93",
+                "78c09954ec9cd2fa"
+            ]
+        ]
+    },
+    {
+        "id": "3e3cebc9df90bd93",
+        "type": "exec",
+        "z": "b4a5bfc25e8e21b6",
+        "command": "hostname",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": true,
+        "oldrc": false,
+        "name": "Get Hostname",
+        "x": 380,
+        "y": 60,
+        "wires": [
+            [
+                "74b95af3382b5b2b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "78c09954ec9cd2fa",
+        "type": "exec",
+        "z": "b4a5bfc25e8e21b6",
+        "command": "cat /etc/os-release | grep PRETTY_NAME | cut -d= -f2 | tr -d '\"'",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Get System Ver",
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "74b95af3382b5b2b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "74b95af3382b5b2b",
+        "type": "uibuilder",
+        "z": "b4a5bfc25e8e21b6",
+        "name": "seer-settings",
+        "topic": "",
+        "url": "seer-settings",
+        "okToGo": true,
+        "fwdInMessages": true,
+        "allowScripts": false,
+        "allowStyles": false,
+        "copyIndex": true,
+        "templateFolder": "blank",
+        "extTemplate": "",
+        "showfolder": false,
+        "reload": false,
+        "sourceFolder": "src",
+        "deployedVersion": "7.5.0",
+        "showMsgUib": false,
+        "title": "",
+        "descr": "",
+        "editurl": "vscode://file/home/admin/.node-red/uibuilder/seer-settings/?windowId=_blank",
+        "x": 700,
+        "y": 160,
+        "wires": [
+            [
+                "3e3cebc9df90bd93",
+                "78c09954ec9cd2fa"
+            ],
+            []
+        ]
+    }
+]

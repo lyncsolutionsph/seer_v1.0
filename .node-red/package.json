@@ -1,0 +1,23 @@
+{
+  "name": "seer-security-platform",
+  "description": "SEER - Security Event Exploration and Response Platform",
+  "version": "1.0.0",
+  "author": "SEER Development Team",
+  "private": false,
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "node-red-contrib-buffer-parser": "^3.2.2",
+    "node-red-contrib-os": "~0.2.1",
+    "node-red-contrib-play-audio": "^2.5.0",
+    "node-red-contrib-uibuilder": "~7.5.0",
+    "node-red-dashboard": "~3.6.6",
+    "node-red-node-pi-gpio": "^2.0.6",
+    "node-red-node-ping": "^0.3.3",
+    "node-red-node-random": "^0.4.1",
+    "node-red-node-serialport": "^2.0.3",
+    "node-red-node-smooth": "^0.1.2",
+    "node-red-node-sqlite": "~1.1.1",
+    "node-red-node-tail": "~0.4.0",
+    "node-red-node-ui-table": "~0.4.5"
+  }
+}
